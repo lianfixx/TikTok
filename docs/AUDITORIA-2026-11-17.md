@@ -24,7 +24,7 @@
 
 ## Lo que sigue sin probar
 
-- Que la revisión mensual pueda leer tiktok.com desde los servidores de GitHub. Si TikTok la bloquea, el trabajo falla con salida 2 y hay que correrla desde box o desde una sesión de Claude.
+- Probado el 17/11/2026: la revisión mensual sí lee tiktok.com desde GitHub (ejecución manual <https://github.com/lianfixx/TikTok/actions/runs/44237119521>, 34 de 34 frases). Si un día TikTok la bloquea, falla con salida 2 y se corre desde box o desde una sesión de Claude.
 - El límite de caracteres de la descripción y el requisito de seguidores para LIVE: el Centro de Ayuda no se deja leer de forma automática.
 - La comprobación de C2PA busca marcas en los bytes del MP4; no es un lector completo de Content Credentials.
 - GitHub desactiva las tareas programadas de un repositorio público tras 60 días sin actividad; si eso pasa, se reactiva en la pestaña Actions.

@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-17 · Revisión mensual probada en GitHub
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: cierre de la auditoría del mismo día.
+- Cambios: se lanzó a mano el workflow `fuentes.yml` para comprobar que GitHub puede leer tiktok.com; lo anota `docs/AUDITORIA-2026-11-17.md`.
+- Archivos: `docs/AUDITORIA-2026-11-17.md` y este registro.
+- Verificación: ejecución <https://github.com/lianfixx/TikTok/actions/runs/44237119521> → aprobado, «todas las frases siguen en su fuente»; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: ninguno.
+
 ## 2026-11-17 · Auditoría independiente y correcciones (1.2.0)
 - Agente: Claude Code (sesión en la nube); revisor: otro agente de Claude Code, independiente y de solo lectura.
 - Solicitud: método acordado con Emi para la skill (auditoría adversarial al final y corregir todo lo que encuentre).
