@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-17 · Encargo al panel: modo manual de TikTok
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 17/11/2026: que el panel le diga, para TikTok, la hora, la fecha, la descripción y le deje descargar el video y la portada; él publica a mano.
+- Cambios: (1) Encargo enviado a la sesión de la Matriz de Redes, que mantiene el panel: fecha, hora y cuenta regresiva; descargar video y portada; copiar la descripción con contador de 2,200 caracteres; checklist de ajustes de la app; pasos; «Ya la publiqué» con enlace; recordatorio; sin reglas de X en piezas de TikTok; y un campo `tiktok` opcional en la pieza para los ajustes. (2) Portada del DOF (cuadro de 0.3 s, 1080×1920) subida al panel (`a9a6a953aba9`) y propuesta a la pieza `eb716e244b02`; Emi la acepta con «Agregar y aprobar». Este repositorio no cambia de código: cuando el panel defina el campo, se adapta la entrega.
+- Archivos: este registro.
+- Verificación: panel → archivo «listo» y propuesta aceptada por la API; mensaje entregado a la sesión del panel; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: que la sesión del panel lo construya; probarlo con la pieza del DOF; que Emi acepte la portada propuesta.
+
 ## 2026-11-17 · Automatizar la subida a TikTok: qué se puede
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 17/11/2026: «Dime paso por paso lo de automatizar la subida de videos».
