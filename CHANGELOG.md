@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-18 · Vox Studio aplicó el puente; regla de voz de IA aclarada
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: aviso de la Matriz de Redes (18/11/2026): Vox Studio aplicó la petición, con la confirmación de Emi, y señaló que el puente prohibía «voces realistas hechas con IA» cuando su voz de ElevenLabs lo es.
+- Cambios: `puente/PETICION-vox.md` queda en «aplicada en rama, sin fusionar» (commit `7c605c0`). El puente decía más de lo que exige TikTok y contradecía la skill; ahora pide lo mismo que la regla oficial: nada de personas o escenas realistas hechas con IA, ni voces que suenen a una persona conocida, porque la narración TTS genérica está exenta. `formato.md` anota el caso de la voz del espacio personal como TTS genérico (criterio) y la opción de la voz de Emi para cero riesgo.
+- Archivos: `puente/{para-vox.md,PETICION-vox.md}`, `skills/tiktok-studio/references/formato.md` y este registro.
+- Verificación: `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: fusionar la rama de Vox Studio a `main` (lo decide su sesión con Emi).
+
 ## 2026-11-17 · Encargo al panel: modo manual de TikTok
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 17/11/2026: que el panel le diga, para TikTok, la hora, la fecha, la descripción y le deje descargar el video y la portada; él publica a mano.

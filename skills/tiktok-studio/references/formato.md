@@ -94,6 +94,8 @@ Regla de Emi (13/11/2026): ninguna pieza dice que la hizo una IA.
 
 Caso revisado el 17/11/2026: el video del DOF «¿Adiós al efectivo?» (56 s) es collage ilustrado con voz genérica y no tiene C2PA. No requiere etiqueta.
 
+Voz del espacio `personal` de Vox Studio («Daniel Virgen - Hyped», de la biblioteca de ElevenLabs), revisada el 18/11/2026: suena humana, pero no hay indicio de que sea la voz reconocible de una persona conocida (una búsqueda no la ligó a nadie). **Criterio**: entra en la exención de TTS genérico y no requiere la etiqueta en TikTok; se marca `voz_ia_generica: true`. Si un día se usa una voz clonada de alguien identificable, va `voz_ia_reconocible: true` y la pieza se rediseña. Para cero riesgo, la opción es la voz de Emi. Instagram tiene su propia regla, más amplia, y la decide su skill.
+
 ## Marca de agua y archivo de origen
 
 - **Oficial**: lo que lleva marca de agua o logo de otra plataforma no entra al Para ti (informe DSA 2025).

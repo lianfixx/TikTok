@@ -2,7 +2,7 @@
 
 - De: skill tiktok-studio (`lianfixx/tiktok`), 17/11/2026, por encargo de Emi: una skill de TikTok propia que trabaje con Vox Studio, cada una con sus instrucciones separadas.
 - Para: quien mantenga `skills/vox-studio/` en `lianfixx/VIDEOS-IA-SKILL-MILLA`.
-- Estado: **autorizada por Emi el 17/11/2026, enviada a la Matriz de Redes para que la haga llegar a Vox Studio**; no aplicada todavía. tiktok-studio no escribe en ese repositorio.
+- Estado: **aplicada en rama, sin fusionar**. Vox Studio 0.13.2, commit `7c605c0` en la rama `claude/magical-cori-8bdu3a` de `lianfixx/VIDEOS-IA-SKILL-MILLA` (informado por la Matriz de Redes el 18/11/2026): «Solo video» enlaza este puente y `cuentas.tiktok` = `@emiliano_milla_`; el `handle` queda vacío por decisión de Emi (ningún video muestra el @). Falta fusionarla a `main`. tiktok-studio no escribe en ese repositorio.
 
 ## Qué se pide
 
