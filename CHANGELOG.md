@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-18 · Fuente oficial de la Queja 212/2025 verificada
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: pendiente de la entrada anterior. La sesión de videos pasó el registro por medio de la Matriz de Redes.
+- Cambios: verificado en el Semanario Judicial de la Federación (leído con el navegador de box: la página carga el texto con JavaScript y bloquea lectores automáticos) que existe la tesis aislada II.2o.C.9 K (11a.), registro digital 2031010. La dictó el Segundo Tribunal Colegiado en Materia Civil del Segundo Circuito en la Queja 212/2025 (29/07/2025) y la publicó el 22/08/2025. Fija cuatro principios mínimos para usar IA en procesos jurisdiccionales: proporcionalidad e inocuidad, protección de datos personales, transparencia y explicabilidad, y supervisión y decisión humanas («como auxiliar y no como sustituto»). Integró la jurisprudencia II.2o.C. J/2 K (12a.), del 09/01/2026. Coincide con lo que dice el video de la parte 2. Se anotó la fuente en la nota de la pieza `b0b105d5c0d5` del panel y en la ficha privada.
+- Archivos: este registro.
+- Verificación: <https://sjf2.scjn.gob.mx/detalle/tesis/2031010> → texto leído; panel → pieza actualizada sin errores de revisión; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: ninguno de esta fuente.
+
 ## 2026-11-18 · Dos piezas de TikTok sobre The Economist 2027 en el panel
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: decisión de Emi del 18/11/2026 (chat de la Matriz de Redes): parte 1 el sábado 21 y parte 2 el domingo 22, ambas a las 19:30; la voz se queda como está («Déjalos así»).
