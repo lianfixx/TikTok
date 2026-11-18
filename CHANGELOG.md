@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-17 · Automatizar la subida a TikTok: qué se puede
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 17/11/2026: «Dime paso por paso lo de automatizar la subida de videos».
+- Cambios: se leyó la documentación oficial de TikTok for Developers (Content Posting API, Content Sharing Guidelines, App Review Guidelines, sandbox; actualizadas el 04/08/2026) y se anotó en `references/entrega-y-medicion.md`. Publicar directo para la cuenta propia no pasa la auditoría y, sin ella, todo queda en privado. Subir como borrador también pide app aprobada (o un sandbox, que es para pruebas). Lo viable hoy es programar en TikTok Studio web o usar un programador de terceros ya auditado. Tres fuentes nuevas vigiladas.
+- Archivos: `skills/tiktok-studio/references/{entrega-y-medicion,fuentes}.md`, `skills/tiktok-studio/data/fuentes.json` y este registro.
+- Verificación: `tiktokstudio.py fuentes revisar --solo` en las cuatro fuentes de la API → todas las frases presentes; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: decisión de Emi entre programar en TikTok Studio o probar un programador de terceros.
+
 ## 2026-11-17 · DOF aprobado, pieza en el panel y revisión mensual con sello
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 17/11/2026, en el chat de esta sesión: «Apruebo descripción»; «1.- Si 2.- Si» (que la revisión mensual selle sola y que Vox Studio lea el puente de TikTok); preguntó si se puede publicar por API.

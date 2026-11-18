@@ -249,6 +249,43 @@
           "regla": "entrega-y-medicion.md: la API exige auditoría"
         }
       ]
+    },
+    {
+      "id": "api-guias",
+      "titulo": "TikTok for Developers: Content Sharing Guidelines",
+      "url": "https://developers.tiktok.com/docs/en/content-sharing-guidelines",
+      "frases": [
+        {
+          "texto": "A utility tool to help upload contents to the account(s) you or your team manages",
+          "regla": "entrega-y-medicion.md: una herramienta para subir a la cuenta propia no pasa la auditoría"
+        },
+        {
+          "texto": "Unaudited API Clients can only post contents in SELF_ONLY viewership",
+          "regla": "entrega-y-medicion.md: sin auditoría, solo privado"
+        }
+      ]
+    },
+    {
+      "id": "api-borrador",
+      "titulo": "TikTok for Developers: Content Posting API, upload (borrador)",
+      "url": "https://developers.tiktok.com/docs/en/content-posting-api-get-started-upload-content",
+      "frases": [
+        {
+          "texto": "they must click on inbox notifications to continue the editing flow in TikTok and complete the post",
+          "regla": "entrega-y-medicion.md: subir como borrador a la bandeja"
+        }
+      ]
+    },
+    {
+      "id": "api-sandbox",
+      "titulo": "TikTok for Developers: Add a Sandbox",
+      "url": "https://developers.tiktok.com/docs/en/add-a-sandbox",
+      "frases": [
+        {
+          "texto": "allows you to try out integrations without having to submit your app for review",
+          "regla": "entrega-y-medicion.md: el sandbox es para pruebas"
+        }
+      ]
     }
   ]
 }

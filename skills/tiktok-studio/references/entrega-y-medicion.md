@@ -2,7 +2,7 @@
 
 ## Entregar
 
-Ninguna IA publica en TikTok ni entra a la cuenta de Emi. TikTok tiene una API oficial para publicar (Content Posting API), pero exige una app revisada por TikTok y una autorización de Emi; **no está conectada** y conectarla requiere su decisión (y, como en X, pasaría por el panel de la Matriz de Redes). Hoy el modo es manual:
+Ninguna IA publica en TikTok ni entra a la cuenta de Emi. Hoy el modo es manual (ver «Automatizar la subida» abajo):
 
 1. `tts revisar ARCHIVO --para entrega` sin errores. Exige que la pieza esté aprobada y que la huella del texto coincida con la aprobada.
 2. Antes de aprobar, `tts archivo RUTA.mp4` da el `archivo_sha256` del MP4 (y busca C2PA). Va en la ficha, así la aprobación queda atada a ese archivo exacto y a la fecha, la música y los ajustes; si cualquiera cambia, hay que aprobar de nuevo.
@@ -13,6 +13,13 @@ Ninguna IA publica en TikTok ni entra a la cuenta de Emi. TikTok tiene una API o
    - portada (segundo o archivo) y su texto;
    - ajustes: etiqueta de IA (apagada y por qué), divulgación comercial, música, subtítulos automáticos (no, si ya trae).
 4. Emi lo sube desde su teléfono o lo programa en TikTok Studio web, que permite programar hasta 30 días antes (oficial, Creator Academy). Confirma en el chat con el enlace del video.
+
+## Automatizar la subida (revisado el 17/11/2026, TikTok for Developers)
+
+- **Publicar directo por API (Content Posting API, Direct Post)**: sin auditoría, lo publicado queda en privado («Unaudited API Clients can only post contents in SELF_ONLY viewership», oficial). La auditoría no acepta una herramienta para subir a la cuenta propia: «Not acceptable: A utility tool to help upload contents to the account(s) you or your team manages», y la revisión de apps exige que no sea «for private or personal use» (oficial). Con el panel de Emi, que es de uso personal, **no es viable**.
+- **Subir como borrador (Upload, `video.upload`)**: el video llega a la bandeja de TikTok de Emi y él lo termina y publica desde la app (oficial). También pide una app aprobada; en modo sandbox, que es para pruebas, funciona sin revisión con hasta 10 cuentas propias (oficial). **Criterio**: usar un sandbox de pruebas como herramienta diaria va contra su propósito y puede dejar de funcionar; no se recomienda como base.
+- **Lo viable hoy**: programar en TikTok Studio web, hasta 30 días antes (oficial). Con más de 1,000 seguidores se pueden subir hasta 30 videos a la vez (oficial; Emi tenía 1,007 el 17/11/2026). Un rato a la semana: subir los videos aprobados y dejarlos programados.
+- **Programadores de terceros ya auditados** (Buffer, Metricool, Later y similares): Emi conecta su TikTok en ellos y ellos publican. No verificado aquí: si publican directo o como borrador en México, su costo y si tienen API para que el panel les pase las piezas. Requiere decisión de Emi (costo y dar acceso a un tercero).
 
 ## Anotar
 
