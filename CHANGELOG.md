@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-18 · Excepciones de cadencia decididas por Emi
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 18/11/2026, en el chat de la Matriz de Redes (informado por esa sesión): los dos videos de The Economist 2027 salen el sábado 21 y el domingo 22, con 24 horas entre los dos.
+- Cambios: campo `excepcion_cadencia` en la ficha, con las palabras, la fecha y el lugar donde lo dijo Emi. `tts semana` convierte el error de separación en aviso cuando la ficha lo trae. Documentado en `formato.md`; una prueba nueva. Las dos fichas de TikTok están en `cuenta/privado/` (no se suben) y esperan los MP4 de Vox Studio.
+- Archivos: `skills/tiktok-studio/scripts/{tiktokstudio.py,test_tiktokstudio.py}`, `skills/tiktok-studio/references/formato.md` y este registro.
+- Verificación: 50 pruebas → aprobado; `tts semana` con las dos fichas → sin errores, con el aviso de la excepción; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: revisar los MP4 (imágenes, voz «Emilio» y C2PA) cuando lleguen al panel y dejar las dos piezas con su ficha.
+
 ## 2026-11-18 · Ficha manual de TikTok en el panel
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: encargo de Emi del 17/11/2026 (que el panel le diga fecha, hora, descripción y le deje descargar video y portada); la Matriz de Redes desplegó la ficha manual el 18/11/2026.

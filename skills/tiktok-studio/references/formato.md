@@ -28,6 +28,7 @@ Va en `cuenta/privado/` (no se sube: el repositorio es público). Ejemplo comple
 | `divulgacion_comercial` | `true` solo si promueve un servicio o una marca (propia o pagada). |
 | `fuentes` | Enlaces oficiales de toda cita legal o dato. |
 | `opinion_emi` | Su postura con sus palabras (obligatoria en política). |
+| `excepcion_cadencia` | Solo si Emi decidió saltarse la separación o el tope: sus palabras, fecha y dónde lo dijo. `tts semana` lo convierte de error en aviso. |
 | `estado` | `idea`, `borrador`, `aprobado`, `programado` o `publicado`. |
 | `aprobado_por_emi`, `aprobado_medio`, `aprobado_huella` | Los escribe `tts aprobar`, nunca a mano. |
 

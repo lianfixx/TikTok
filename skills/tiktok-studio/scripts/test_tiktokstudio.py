@@ -346,6 +346,13 @@ class Auditoria(Aislado):
         previa = [{"id": "pub", "fecha": "2026-11-21T10:00:00-06:00"}]
         self.assertTrue(any("separación" in x for x in t.revisar_semana(ps[:1], previas=previa)[0]))
 
+    def test_excepcion_de_cadencia(self):
+        p1 = pieza(id="a", fecha="2099-03-06T19:30:00-06:00")
+        p2 = pieza(id="b", fecha="2099-03-07T19:30:00-06:00", excepcion_cadencia="Emi, 18/11/2026: «salgan sábado y domingo»")
+        e, a = t.revisar_semana([p1, p2], previas=[])
+        self.assertFalse(any("separación" in x for x in e))
+        self.assertTrue(any("excepción de Emi" in x for x in a))
+
     def test_huella_cubre_entrega(self):
         base = pieza()
         h = t.huella(base)

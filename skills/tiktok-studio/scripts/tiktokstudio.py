@@ -422,7 +422,12 @@ def revisar_semana(piezas: list[dict], previas: list[dict] | None = None) -> tup
     for (f1, p1), (f2, p2) in zip(con_fecha, con_fecha[1:]):
         horas = (f2 - f1).total_seconds() / 3600
         if horas < c["separacion_min_h"]:
-            errores.append(f"{p1.get('id')} → {p2.get('id')}: {horas:.0f} h de separación; mínimo {c['separacion_min_h']} (criterio)")
+            texto = f"{p1.get('id')} → {p2.get('id')}: {horas:.0f} h de separación; mínimo {c['separacion_min_h']} (criterio)"
+            excepcion = str(p2.get("excepcion_cadencia") or p1.get("excepcion_cadencia") or "").strip()
+            if excepcion:
+                avisos.append(texto + f"; excepción de Emi: {excepcion}")
+            else:
+                errores.append(texto)
     pilares = [p.get("pilar") for p in piezas if p.get("pilar") in PILARES]
     bal = perfil().get("balance") or {}
     if len(pilares) >= 4 and bal:
