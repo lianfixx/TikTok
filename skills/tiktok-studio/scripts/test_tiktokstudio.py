@@ -174,16 +174,16 @@ class Semana(Aislado):
     def test_separacion_y_topes(self):
         p1 = pieza(id="a", fecha="2099-01-06T19:30:00-06:00")
         p2 = pieza(id="b", fecha="2099-01-07T12:00:00-06:00", descripcion="Otra cosa #gym #abogado")
-        e, _ = t.revisar_semana([p1, p2])
+        e, _ = t.revisar_semana([p1, p2], previas=[])
         self.assertTrue(any("separación" in x for x in e))
         mismo_dia = [pieza(id="c", fecha="2099-01-06T08:00:00-06:00"), pieza(id="d", fecha="2099-01-06T20:00:00-06:00")]
-        self.assertTrue(any("por día" in x for x in t.revisar_semana(mismo_dia)[0]))
+        self.assertTrue(any("por día" in x for x in t.revisar_semana(mismo_dia, previas=[])[0]))
         cuatro = [pieza(id=f"s{i}", fecha=f"2099-01-{5 + 2 * i:02d}T10:00:00-06:00") for i in range(4)]  # lun 5 a dom 11
-        self.assertTrue(any("por semana" in x for x in t.revisar_semana(cuatro)[0]))
+        self.assertTrue(any("7 días" in x for x in t.revisar_semana(cuatro, previas=[])[0]))
 
     def test_balance(self):
         ps = [pieza(id=f"x{i}", fecha=f"2099-02-{1 + 3 * i:02d}T10:00:00-06:00") for i in range(4)]  # todo lifestyle
-        self.assertTrue(any("pilar lifestyle" in x for x in t.revisar_semana(ps)[1]))
+        self.assertTrue(any("pilar lifestyle" in x for x in t.revisar_semana(ps, previas=[])[1]))
 
     def test_ejemplo_de_semana_limpio(self):
         codigo, salida = self.correr(["semana", str(t.SKILL / "assets" / "semana.ejemplo.json")])
@@ -288,6 +288,126 @@ class Paginas(unittest.TestCase):
             self.assertTrue(f["frases"])
             for fr in f["frases"]:
                 self.assertTrue(fr["texto"].strip() and fr["regla"].strip())
+
+
+class Auditoria(Aislado):
+    """Casos que encontró la auditoría independiente del 17/11/2026."""
+
+    def test_castorena_disfrazado(self):
+        for d in ("#CastorenaAbogados #derecho", "Castorena_Abogados #derecho #abogado", "C4storena #derecho #abogado",
+                  "Castoreña y yo #derecho #abogado"):
+            self.assertTrue(any("Castorena" in x for x in errores(pieza(descripcion=d, hashtags=None))), d)
+
+    def test_autoria_ia_mas_formas(self):
+        for d in ("La IA escribió este guion #derecho #abogado", "Este video lo hice con IA #derecho #abogado",
+                  "Hecho 100% con IA #derecho #abogado", "Guion: ChatGPT #derecho #abogado"):
+            self.assertTrue(any("regla absoluta" in x for x in errores(pieza(descripcion=d))), d)
+
+    def test_autoria_ia_de_terceros_es_aviso(self):
+        for d in ("Lo que generó ChatGPT eran citas falsas #derecho #abogado", "¿Qué hizo la IA en este caso? #derecho #abogado"):
+            p = pieza(descripcion=d)
+            self.assertFalse(any("regla absoluta" in x for x in errores(p)), d)
+            self.assertTrue(any("otro caso" in x for x in avisos(p)), d)
+
+    def test_anzuelos_en_mayusculas_y_metas(self):
+        for d in ("Comenta LEY para recibir la guía #derecho #abogado", "Si llegamos a 10 mil likes subo la parte 2 #derecho #abogado"):
+            self.assertTrue(any("anzuelo" in x for x in errores(pieza(descripcion=d))), d)
+        for d in ("Lo que sigue en la ley y te doy mi opinión #gym #abogado", "En el siguiente video y te paso las fuentes #gym #abogado"):
+            self.assertFalse(any("anzuelo" in x for x in errores(pieza(descripcion=d))), d)
+        self.assertTrue(any("guardar o compartir" in x for x in avisos(pieza(descripcion="Compártelo con alguien que lo necesite #gym #abogado"))))
+
+    def test_derecho_sin_falsos_positivos(self):
+        for d in ("Reforma tu rutina de gym #gym #abogado", "Paseo de la Reforma a las 6 #gym #abogado", "Código de vestimenta del gym #gym #abogado"):
+            self.assertFalse(any("fuente oficial" in x for x in errores(pieza(descripcion=d))), d)
+        for d in ("El art 123 lo dice #derecho #abogado", "La LFT cambió #derecho #abogado", "La Corte resolvió #derecho #abogado"):
+            self.assertTrue(any("fuente oficial" in x for x in errores(pieza(descripcion=d))), d)
+
+    def test_dominio_oficial_por_host(self):
+        d = "El artículo 13 de la ley #derecho #abogado"
+        for f in ("https://evil.com/dof.gob.mx/x", "https://x.com/a.dof.gob.mx", "https://dof.gob.mx.evil.com/"):
+            self.assertTrue(any("fuente oficial" in x for x in errores(pieza(descripcion=d, fuentes=[f]))), f)
+        self.assertFalse(any("fuente oficial" in x for x in errores(pieza(descripcion=d, fuentes=["https://sjf2.scjn.gob.mx/detalle/tesis/1"]))))
+
+    def test_hashtags_pegados_y_acentos(self):
+        self.assertEqual(t.hashtags_de("#derecho#ia#gym"), ["derecho", "ia", "gym"])
+        self.assertEqual(t.hashtags_de("#derechó ＃ley"), ["derechó", "ley"])
+        self.assertTrue(any("6 hashtags" in x for x in errores(pieza(descripcion="x #a#b#c#d#e#fyp", hashtags=None))))
+
+    def test_semana_movil_y_publicados(self):
+        fechas = ["2026-11-20T19:30:00-06:00", "2026-11-22T19:30:00-06:00", "2026-11-24T19:30:00-06:00", "2026-11-26T19:30:00-06:00"]
+        ps = [pieza(id=f"m{i}", fecha=f) for i, f in enumerate(fechas)]
+        self.assertTrue(any("7 días" in x for x in t.revisar_semana(ps, previas=[])[0]))
+        previa = [{"id": "pub", "fecha": "2026-11-21T10:00:00-06:00"}]
+        self.assertTrue(any("separación" in x for x in t.revisar_semana(ps[:1], previas=previa)[0]))
+
+    def test_huella_cubre_entrega(self):
+        base = pieza()
+        h = t.huella(base)
+        for campo, valor in (("fecha", "2099-01-07T19:30:00-06:00"), ("musica", "ninguna"), ("subtitulos_quemados", True),
+                             ("etiqueta_ia", {"requiere": False, "motivo": "otro"}), ("archivo_sha256", "1" * 64),
+                             ("divulgacion_comercial", True), ("fuentes", ["https://dof.gob.mx/"])):
+            otra = copy.deepcopy(base)
+            otra[campo] = valor
+            self.assertNotEqual(t.huella(otra), h, campo)
+
+    def test_fecha_con_z_y_metricas_invalidas(self):
+        self.assertEqual(t.fecha("2026-11-19T01:30:00Z").utcoffset().total_seconds(), 0)
+        self.correr(["publicado", "--id", "tt-z", "--fecha", "2026-11-19T19:30:00-06:00", "--pilar", "ia-derecho", "--descripcion", "x"])
+        self.assertEqual(self.correr(["metricas", "tt-z", "--capturado", "2026-11-26", "vistas=nan"])[0], 1)
+        self.assertEqual(self.correr(["metricas", "tt-z", "--capturado", "ayer", "vistas=3"])[0], 1)
+
+    def test_huella_texto_igual_que_redes(self):
+        import hashlib, unicodedata
+        texto = " ¿Adiós al efectivo? "
+        self.assertEqual(t.huella_texto(texto), hashlib.sha256(unicodedata.normalize("NFC", texto).strip().encode()).hexdigest()[:12])
+
+    def test_archivo_sha_y_c2pa(self):
+        limpio = Path(self.tmp.name) / "a.mp4"
+        limpio.write_bytes(b"\x00" * 100)
+        codigo, salida = self.correr(["archivo", str(limpio)])
+        self.assertEqual(codigo, 0)
+        self.assertIn("archivo_sha256: ", salida)
+        marcado = Path(self.tmp.name) / "b.mp4"
+        marcado.write_bytes(b"\x00" * 10 + b"jumbf...c2pa" + b"\x00" * 10)
+        self.assertEqual(self.correr(["archivo", str(marcado)])[0], 2)
+
+
+class FuentesSalida(unittest.TestCase):
+    DATOS = {"fuentes": [{"id": "a", "url": "https://ejemplo.org/a", "frases": [{"texto": "frase uno", "regla": "r"}]},
+                         {"id": "b", "url": "https://ejemplo.org/b", "frases": [{"texto": "frase dos", "regla": "r"}]}]}
+
+    def lector(self, paginas):
+        def leer(url):
+            v = paginas[url]
+            if isinstance(v, Exception):
+                raise v
+            return v
+        return leer
+
+    def test_todo_bien(self):
+        f, s, m, _ = t.revisar_fuentes(self.DATOS, self.lector({"https://ejemplo.org/a": ("<main>frase uno</main>", "https://ejemplo.org/a"),
+                                                                "https://ejemplo.org/b": ("<main>frase dos</main>", "https://ejemplo.org/b/")}))
+        self.assertEqual((f, s, m), ([], [], []))
+
+    def test_pagina_borrada_no_pasa(self):
+        import urllib.error
+        err = urllib.error.HTTPError("https://ejemplo.org/b", 404, "Not Found", None, None)
+        f, s, m, _ = t.revisar_fuentes(self.DATOS, self.lector({"https://ejemplo.org/a": ("<main>frase uno</main>", "https://ejemplo.org/a"),
+                                                                "https://ejemplo.org/b": err}))
+        self.assertEqual(s, ["b"])
+
+    def test_redireccion_y_frase_fuera_del_articulo(self):
+        crudo = '<nav>frase dos</nav><main>otra cosa<script>{"x":"frase dos"}</script></main>'
+        f, s, m, _ = t.revisar_fuentes(self.DATOS, self.lector({"https://ejemplo.org/a": ("<main>frase uno</main>", "https://ejemplo.org/otra"),
+                                                                "https://ejemplo.org/b": (crudo, "https://ejemplo.org/b")}))
+        self.assertEqual([x[0] for x in m], ["a"])
+        self.assertEqual([x[0] for x in f], ["b"])
+
+    def test_cuerpo_de_creator_academy(self):
+        crudo = '<p>first three seconds</p><script>{"articleData":{"article":{"title":"T","content":"\\u003cp\\u003eSolo esto\\u003c/p\\u003e"}}}</script>'
+        texto = t.cuerpo(crudo)
+        self.assertIn("Solo esto", texto)
+        self.assertNotIn("first three seconds", texto)
 
 
 if __name__ == "__main__":

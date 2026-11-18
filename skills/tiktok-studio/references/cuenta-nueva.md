@@ -44,7 +44,7 @@ Se revisa al cumplir 4 semanas con métricas: si la retención y las vistas agua
 
 ## Hora de publicación
 
-No hay hora oficial. Mientras no haya datos: 19:30 entre semana y 12:00 en sábado (criterio: después del trabajo y a media mañana del fin de semana en el centro de México). Cuando Analytics tenga datos, se usa «Most active times» de su audiencia: «Use it to help plan when to post, then check back to see what works best for you» (oficial).
+No hay hora oficial. Mientras no haya datos: 19:30 (criterio: después del trabajo en el centro de México), también en sábado para respetar las 48 horas entre videos del calendario de lanzamiento. Cuando Analytics tenga datos, se usa «Most active times» de su audiencia: «Use it to help plan when to post, then check back to see what works best for you» (oficial).
 
 ## Mismo video en TikTok y en Reels
 

@@ -7,12 +7,50 @@
     "certeza": "criterio",
     "fuente": "skills/tiktok-studio/references/cuenta-nueva.md#cadencia-criterio-ajustable"
   },
-  "hashtags": {"recomendados_max": 3, "max": 5, "certeza": "oficial", "fuente": "Creator Academy, Elements of a TikTok video: «2 to 3 relevant hashtags»"},
-  "hashtags_mito": ["fyp", "foryou", "foryoupage", "parati", "paratí", "viral", "xyzbca"],
+  "hashtags": {
+    "recomendados_max": 3,
+    "max": 5,
+    "certeza": "oficial (2 o 3) y criterio (tope de 5)",
+    "fuente": "Creator Academy, Elements of a TikTok video: «2 to 3 relevant hashtags»; el tope de 5 es de la skill"
+  },
+  "hashtags_mito": [
+    "fyp",
+    "foryou",
+    "foryoupage",
+    "parati",
+    "paratí",
+    "viral",
+    "xyzbca"
+  ],
   "descripcion_max": 2200,
-  "gancho_s": {"ideal": 3, "max": 5, "certeza": "oficial"},
-  "similitud": {"error": 0.8, "aviso": 0.6},
-  "minutos_emi_por_pieza": {"video-vox": 10, "video-editor": 20, "video-emi": 30, "fotos": 15},
+  "gancho_s": {
+    "ideal": 3,
+    "max": 5,
+    "certeza": "oficial (3 s; «ideally within the first 5 seconds») y criterio (error arriba de 5)"
+  },
+  "similitud": {
+    "error": 0.8,
+    "aviso": 0.6
+  },
+  "minutos_emi_por_pieza": {
+    "video-vox": 10,
+    "video-editor": 20,
+    "video-emi": 30,
+    "fotos": 15
+  },
   "dias_max_sin_verificar_fuentes": 45,
-  "dominios_oficiales": ["dof.gob.mx", "scjn.gob.mx", "sjf2.scjn.gob.mx", "diputados.gob.mx", "senado.gob.mx", "gob.mx", "ine.mx", "banxico.org.mx", "sat.gob.mx", "cjf.gob.mx", "tfja.gob.mx", "inegi.org.mx"]
+  "dominios_oficiales": [
+    "dof.gob.mx",
+    "scjn.gob.mx",
+    "sjf2.scjn.gob.mx",
+    "diputados.gob.mx",
+    "senado.gob.mx",
+    "gob.mx",
+    "ine.mx",
+    "banxico.org.mx",
+    "sat.gob.mx",
+    "cjf.gob.mx",
+    "tfja.gob.mx",
+    "inegi.org.mx"
+  ]
 }

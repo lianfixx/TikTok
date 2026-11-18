@@ -1,10 +1,10 @@
 name: Vigilar las fuentes de TikTok
 
 # El primer domingo de cada mes abre cada fuente oficial de skills/tiktok-studio/data/fuentes.json
-# y comprueba que siga diciendo la frase en la que se apoya cada regla. Si una frase desapareció,
-# el trabajo falla y GitHub avisa: toca releer la página y actualizar la skill (SKILL.md,
-# «Mantener al día»). Si TikTok bloquea la lectura desde GitHub, también falla (salida 2) para
-# que se repita desde otra conexión. No modifica nada por sí solo.
+# y comprueba, solo dentro del artículo, que siga diciendo la frase en la que se apoya cada regla.
+# Falla y GitHub avisa si una frase desapareció o la página cambió de dirección (salida 1), si no se
+# pudo leer ninguna página (2) o alguna (3). Toca releer y actualizar la skill (SKILL.md, «Mantener
+# al día»). Solo lee: no sella fechas ni escribe en el repositorio (eso lo hace una sesión con Emi).
 on:
   schedule:
     - cron: "41 16 * * 0"

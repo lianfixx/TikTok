@@ -13,7 +13,8 @@ class Secretos(unittest.TestCase):
     def test_detecta(self):
         # Las muestras se arman al vuelo para que este archivo no dispare el propio escaneo.
         for texto in ("-----BEGIN RSA " + "PRIVATE KEY-----", "sk" + "-" + "a" * 30, "gh" + "p_" + "A1" * 18,
-                      "session" + "id=" + "ab12" * 6, "client" + "_secret: " + "Zz9" * 8, "GAME" + "900101" + "HDFRRL09"):
+                      "session" + "id=" + "ab12" * 6, "client" + "_secret: " + "Zz9" * 8, '"session' + 'id": "' + "a1b2" * 6 + '"',
+                      '{"name": "session' + 'id", "value": "' + "c3d4" * 6 + '"}', "ms" + "Token=" + "Q" * 30, "GAME" + "900101" + "HDFRRL09"):
             self.assertTrue(self.detecta(texto), texto)
 
     def test_no_marca_texto_normal(self):

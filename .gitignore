@@ -7,3 +7,6 @@ cuenta/privado/*
 *.cookies
 *.mp4
 *.mov
+cookies*.json
+cookies*.txt
+*cookies.txt

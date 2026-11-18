@@ -2,7 +2,7 @@
 
 Valen igual en Claude, ChatGPT, Codex, Gemini o cualquier otra IA, y para personas. Escritas el 17/11/2026 a partir de lo que Emi decidió entre el 10 y el 13/11/2026; el protocolo común está en `ia/PROTOCOLO.md`.
 
-**Qué se aplica solo:** GitHub corre `python3 ia/verificar.py ci` en cada push y pull request (pruebas, SKILL.md y puentes, estado para la Matriz de Redes, registro con «Agente:», secretos, videos y borradores privados) y, cada mes, la revisión de fuentes oficiales (`fuentes.yml`). **Qué no:** este repositorio no tiene los frenos automáticos (`guard.py`, `politica.json`, hooks de git) de otros repositorios de Emi; instalarlos cambia reglas comunes y requiere su confirmación. Mientras tanto, cada IA cumple estas reglas por sí misma.
+**Qué se aplica solo:** GitHub corre `python3 ia/verificar.py ci` en cada push y pull request (pruebas, SKILL.md y puentes, estado para la Matriz de Redes, registro con «Agente:», secretos, videos y borradores privados) y, cada mes, la revisión de fuentes oficiales (`fuentes.yml`, solo lectura); en GitHub Actions el control exige además que el último commit termine con `IA-Actor:`. **Qué no:** este repositorio no tiene los frenos automáticos (`guard.py`, `politica.json`, hooks de git) de otros repositorios de Emi; instalarlos cambia reglas comunes y requiere su confirmación. Mientras tanto, cada IA cumple estas reglas por sí misma.
 
 ## Prohibido
 

@@ -2,7 +2,7 @@
   "contrato": "redes-estado/0.1.1",
   "skill": "tiktok-studio",
   "red": "tiktok",
-  "version_skill": "1.1.0",
+  "version_skill": "1.2.0",
   "actualizado": "2026-11-17",
   "cuentas": [
     {
@@ -44,7 +44,7 @@
   "lecciones": [
     {
       "fecha": "2026-11-17",
-      "texto": "El video del DOF del espacio Castorena se puede subir a la cuenta personal porque no muestra la marca ni el nombre del despacho (revisado cuadro por cuadro); cualquier otro video de otro espacio se revisa igual antes de subirlo.",
+      "texto": "Un video hecho para otro espacio de Vox Studio solo va a la cuenta personal si no muestra ninguna marca ni nombre de ese espacio; se revisa cuadro por cuadro antes de subirlo.",
       "evidencia": "cuenta/aprendizajes.md",
       "alcance": "red"
     }

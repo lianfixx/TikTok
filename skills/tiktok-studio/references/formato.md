@@ -33,7 +33,7 @@ Va en `cuenta/privado/` (no se sube: el repositorio es público). Ejemplo comple
 
 ## Gancho: los primeros 3 segundos
 
-- **Oficial**: «Hook viewers in the first three seconds of your video» (Creator Academy, «Video traffic: the For You feed»). Otro artículo dice «ideally within the first 5 seconds». Regla de la skill: **3 segundos, a más tardar 5**.
+- **Oficial**: «Hook viewers in the first three seconds of your video» (Creator Academy, «Video traffic: the For You feed»). Otro artículo dice «ideally within the first 5 seconds». **Criterio** de la skill: 3 segundos; pasar de 5 es error.
 - **Oficial**: técnicas que menciona TikTok: una pregunta que el video responde, suspenso, poner el tiempo en el título («Everything you need to know about buying a home in 2 mins»), mostrar al inicio un adelanto del resultado, y «a bold text overlay or quick voiceover in the first three seconds that tells viewers exactly what they're about to learn».
 - **Criterio** (con la postura de Emi del 13/11/2026: ganchos agresivos permitidos): el gancho puede ser duro, pero **tiene que cumplir lo que promete** en el video. Un gancho que engaña hace que la gente salte, y saltar es una de las señales que el sistema predice (oficial).
 - **Criterio**: el gancho va en tres capas a la vez: lo que se ve, lo que se oye y el texto en pantalla. Más del 30 % ve sin sonido según una encuesta de TikTok (oficial, sin metodología publicada), así que el texto en pantalla tiene que entenderse solo.
@@ -63,7 +63,7 @@ Va en `cuenta/privado/` (no se sube: el repositorio es público). Ejemplo comple
 
 - **Oficial**: «we encourage you to use 2 to 3 relevant hashtags on each video». Muchos hashtags poco relacionados «can actually work against you».
 - **De terceros**: #fyp, #foryou y apilar hashtags de moda no tuvieron efecto medible en llegar a tendencias (Klug et al., WebSci 2021). `tts revisar` avisa si aparecen #fyp o #parati.
-- **Criterio**: 2 o 3 que describan el tema (#derecho, #abogado, #DOF), nunca más de 5.
+- **Criterio**: 2 o 3 que describan el tema (#derecho, #abogado, #DOF), nunca más de 5. El tope de 5 es de la skill: TikTok no fija un máximo.
 
 ## Portada
 
@@ -86,11 +86,11 @@ Regla de TikTok (oficial, Creator Academy, «AI-generated content label», y Nor
 - **Obligatoria** para contenido hecho o editado de forma significativa con IA que muestre «realistic-looking people or scenes».
 - **No obligatoria** para «generic text-to-speech (TTS) narration, when the TTS isn't a recognizable voice of a known individual», para ediciones menores ni para estilos artísticos.
 - Activarla «won't affect the distribution of your video»; no se puede quitar después de publicar. Sin la etiqueta cuando hace falta, TikTok puede quitar, restringir o etiquetar el video.
-- TikTok etiqueta solo lo que se hace con sus efectos de IA y lo que llega con metadatos C2PA de otras plataformas (informe DSA 2025).
+- TikTok etiqueta por su cuenta lo que se hace con sus efectos de IA y lo que llega con metadatos C2PA de otras plataformas (informe DSA 2025), y su equipo puede etiquetar contenido que detecte sin etiqueta (Normas).
 
 Regla de Emi (13/11/2026): ninguna pieza dice que la hizo una IA.
 
-**Cómo se cumplen las dos** (criterio): esta skill **no encarga videos con personas, voces reconocibles ni escenas realistas hechas con IA**. Vox Studio usa ilustración o collage y voz genérica; Editor Studio trabaja con la imagen y la voz reales de Emi. Así la etiqueta no es obligatoria y nada dice quién armó el video. Si una pieza llegara a necesitarla (`medios.persona_realista_ia`, `escena_realista_ia` o `voz_ia_reconocible` en `true`), `tts revisar` da **error** y se rediseña. No se sube sin la etiqueta para esquivarla. Antes de subir, comprobar que el archivo no traiga metadatos C2PA (`tts revisar` lo pide en `medios.c2pa_revisado`).
+**Cómo se cumplen las dos** (criterio): esta skill **no encarga videos con personas, voces reconocibles ni escenas realistas hechas con IA**. Vox Studio usa ilustración o collage y voz genérica; Editor Studio trabaja con la imagen y la voz reales de Emi. Así la etiqueta no es obligatoria y nada dice quién armó el video. Si una pieza llegara a necesitarla (`medios.persona_realista_ia`, `escena_realista_ia` o `voz_ia_reconocible` en `true`), `tts revisar` da **error** y se rediseña. No se sube sin la etiqueta para esquivarla. Antes de subir se comprueba si el archivo trae metadatos C2PA (`tts archivo RUTA`; queda anotado en `medios.c2pa_revisado`). La comprobación no sirve para esquivar la regla: si el video necesita la etiqueta, se rediseña; si trae C2PA sin necesitarla, se le pide a la productora un render limpio para que TikTok no le ponga una etiqueta que no corresponde.
 
 Caso revisado el 17/11/2026: el video del DOF «¿Adiós al efectivo?» (56 s) es collage ilustrado con voz genérica y no tiene C2PA. No requiere etiqueta.
 

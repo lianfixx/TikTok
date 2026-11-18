@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import os
 import re
 import subprocess
 import sys
@@ -23,7 +24,8 @@ SCRIPT = f"{SKILL}/scripts/tiktokstudio.py"
 SECRETOS = [
     r"-----BEGIN [A-Z ]*PRIVATE KEY-----", r"\bsk-[A-Za-z0-9_-]{20,}", r"\bgh[pousr]_[A-Za-z0-9]{30,}",
     r"\bAKIA[0-9A-Z]{16}\b", r"\bxox[baprs]-[A-Za-z0-9-]{10,}", r"\bAIza[0-9A-Za-z_-]{35}\b",
-    r"(?i)\b(auth_token|sessionid|sid_tt|ct0|password|contraseña|access_token|client_secret)\s*[=:]\s*['\"]?[A-Za-z0-9%+/=_-]{16,}",
+    r"(?i)\b(auth_token|sessionid(?:_ss)?|sid_tt|sid_guard|sid_ucp_v1|ssid_ucp_v1|uid_tt|mstoken|tt_csrf_token|tt_chain_token|odin_tt|ct0|password|contraseña|access_token|refresh_token|client_secret)['\"]?\s*[=:]\s*['\"]?[A-Za-z0-9%+/=_|-]{16,}",
+    r"(?i)['\"]name['\"]\s*:\s*['\"](?:sessionid|sid_tt|sid_guard|mstoken|tt_csrf_token)['\"]\s*,\s*['\"]value['\"]\s*:\s*['\"][^'\"]{16,}",
     r"\b[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9]\d\b",
 ]
 CAMPOS_ESTADO = ("contrato", "skill", "red", "version_skill", "actualizado", "cuentas", "cadencia", "formatos",
@@ -116,6 +118,11 @@ def ci() -> int:
             fallas.append("red/estado.json desactualizado frente a cuenta/publicados.jsonl (correr «tiktokstudio.py estado»)")
     except (OSError, ValueError) as exc:
         fallas.append(f"red/estado.json o cuenta/publicados.jsonl ilegible ({exc})")
+
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        mensaje = git("log", "-1", "--format=%B")
+        if mensaje and not re.search(r"^IA-Actor:\s*\S", mensaje, re.M) and not mensaje.startswith("Merge "):
+            fallas.append("el último commit no termina con «IA-Actor: <agente>» (ia/PROTOCOLO.md)")
 
     registro = RAIZ / "CHANGELOG.md"
     texto = registro.read_text(encoding="utf-8") if registro.is_file() else ""

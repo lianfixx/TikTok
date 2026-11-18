@@ -49,7 +49,8 @@
       "subtitulos_quemados": false,
       "fuentes": [],
       "estado": "borrador",
-      "archivo": "Drive/TikTok/ejemplo.mp4"
+      "archivo": "Drive/TikTok/ejemplo.mp4",
+      "archivo_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
     },
     {
       "_nota": "EJEMPLO FICTICIO para mostrar el formato. No es una pieza real ni una vivencia de Emi.",
@@ -98,7 +99,8 @@
       "subtitulos_quemados": false,
       "fuentes": [],
       "estado": "borrador",
-      "archivo": "Drive/TikTok/ejemplo.mp4"
+      "archivo": "Drive/TikTok/ejemplo.mp4",
+      "archivo_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
     },
     {
       "_nota": "EJEMPLO FICTICIO para mostrar el formato. No es una pieza real ni una vivencia de Emi.",
@@ -147,7 +149,8 @@
       "subtitulos_quemados": false,
       "fuentes": [],
       "estado": "borrador",
-      "archivo": "Drive/TikTok/ejemplo.mp4"
+      "archivo": "Drive/TikTok/ejemplo.mp4",
+      "archivo_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
     }
   ]
 }

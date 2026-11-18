@@ -59,7 +59,7 @@ Que la duración sea una señal **no** dice cuál es la buena: TikTok pide exper
 
 ## Lo que queda fuera del Para ti (oficial)
 
-Normas de la Comunidad vigentes (publicadas el 25/08/2026, en vigor desde el 24/09/2026) e informe DSA 2025. El contenido no elegible **sigue** en el perfil y en la Búsqueda, y TikTok avisa en Analytics si un video quedó fuera.
+Normas de la Comunidad vigentes (publicadas el 25/08/2026, en vigor desde el 24/09/2026), Creator Academy e informe DSA 2025. El contenido no elegible **sigue** en el perfil y en la Búsqueda, y TikTok avisa en Analytics si un video quedó fuera.
 
 | Qué | Cita |
 |---|---|
@@ -67,7 +67,7 @@ Normas de la Comunidad vigentes (publicadas el 25/08/2026, en vigor desde el 24/
 | Marca de agua o logo de otra plataforma | «(such as content with someone else’s visible watermark or superimposed logo) is ineligible for the FYF» (DSA 2025) |
 | Cebo de interacción | «Content that tries to manipulate people into giving gifts or inflating likes or follows isn't eligible for the FYF.» |
 | Interacción falsa | «we'll remove fake likes, followers, or other inflated signals» |
-| Desinformación de daño moderado; afirmaciones no verificadas sobre elecciones | «ineligible for the FYF if it contains misinformation that may cause moderate harm»; ineligible: «Statements that misrepresent authoritative civic information, such as a false claim about the text of a parliamentary bill» |
+| Desinformación de daño moderado; afirmaciones no verificadas sobre elecciones | «ineligible for the FYF if it contains misinformation that may cause moderate harm». Creator Academy («Integrity and authenticity on TikTok») pone como ejemplo no elegible «Statements that misrepresent authoritative civic information, such as a false claim about the text of a parliamentary bill» |
 | Publicidad política pagada (o sospecha) | «suspected paid political advertising is ineligible for the For You feed» |
 | Contenido comercial sin divulgar | «All commercial content must be disclosed using the content disclosure setting.» |
 | IA realista sin etiqueta | «Unlabeled content may be removed, restricted, or labeled by our team» |
@@ -77,13 +77,13 @@ Para un abogado esto se traduce en: citar el texto oficial de la ley o la tesis 
 
 ## Intervención humana (de terceros, con respuesta oficial)
 
-Forbes (20/01/2023) documentó el «heating»: empleados que empujan videos al Para ti a mano. TikTok lo confirmó y dijo que afecta a cerca del 0.002 % de los videos. El informe DSA 2025 dice además que TikTok revisa a mano todo contenido que alcanza cierto nivel de popularidad. **Criterio**: nada de esto lo controla Emi; no entra en la estrategia.
+Forbes (20/01/2023) documentó el «heating»: empleados que empujan videos al Para ti a mano, y calculó que esos videos sumaban «around 1-2%» de las vistas diarias. TikTok lo confirmó y dijo que son cerca del 0.002 % de los videos del Para ti. Las dos cifras miden cosas distintas (vistas contra videos) y no se pueden comparar. El informe DSA 2025 dice además que TikTok revisa a mano todo contenido que alcanza cierto nivel de popularidad. **Criterio**: nada de esto lo controla Emi; no entra en la estrategia.
 
 ## Política (oficial)
 
 - El contenido político orgánico **está permitido** y no es «no elegible» por sí mismo: «our community can share political content organically as long as it's in line with our Community Guidelines. However, we do not allow paid political advertising» (Creator Academy, «Political ads»).
 - Prohibido cobrar por contenido político: «if you're getting paid to create anything political, you're breaking our rules».
-- Las cuentas de gobierno, políticos y partidos (GPPPA: «elected officials, candidates, government agencies, cabinet ministers, and official spokespeople») pierden anuncios y monetización. **Criterio**: la cuenta de Emi es personal; militar en Acción Juvenil no la vuelve GPPPA. Si Emi fuera candidato o funcionario, se revisa.
+- Las cuentas de gobierno, políticos y partidos (GPPPA: «elected officials, candidates, government agencies, cabinet ministers, and official spokespeople») pierden anuncios y monetización. **Criterio**: la cuenta de Emi es personal y no entra en esa definición. Si algún día fuera candidato, funcionario o vocero, se revisa.
 
 ## Lo que TikTok no dice (no inventar)
 

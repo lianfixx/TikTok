@@ -5,13 +5,14 @@
 Ninguna IA publica en TikTok ni entra a la cuenta de Emi. TikTok tiene una API oficial para publicar (Content Posting API), pero exige una app revisada por TikTok y una autorización de Emi; **no está conectada** y conectarla requiere su decisión (y, como en X, pasaría por el panel de la Matriz de Redes). Hoy el modo es manual:
 
 1. `tts revisar ARCHIVO --para entrega` sin errores. Exige que la pieza esté aprobada y que la huella del texto coincida con la aprobada.
-2. `tts entregar ARCHIVO ID` imprime el paquete:
+2. Antes de aprobar, `tts archivo RUTA.mp4` da el `archivo_sha256` del MP4 (y busca C2PA). Va en la ficha, así la aprobación queda atada a ese archivo exacto y a la fecha, la música y los ajustes; si cualquiera cambia, hay que aprobar de nuevo.
+3. `tts entregar ARCHIVO ID` imprime el paquete:
    - fecha y hora (hora del centro de México);
    - archivo de video (nombre y dónde está: Drive o la computadora en la nube);
    - descripción completa, lista para copiar;
    - portada (segundo o archivo) y su texto;
    - ajustes: etiqueta de IA (apagada y por qué), divulgación comercial, música, subtítulos automáticos (no, si ya trae).
-3. Emi lo sube desde su teléfono o lo programa en TikTok Studio web, que permite programar hasta 30 días antes (oficial, Creator Academy). Confirma en el chat con el enlace del video.
+4. Emi lo sube desde su teléfono o lo programa en TikTok Studio web, que permite programar hasta 30 días antes (oficial, Creator Academy). Confirma en el chat con el enlace del video.
 
 ## Anotar
 
@@ -24,7 +25,7 @@ Guarda una línea en `cuenta/publicados.jsonl` con la huella de la descripción 
 
 ## Medir
 
-Las métricas las trae Emi: capturas de TikTok Studio → Analytics, cada domingo (decisión del 13/11/2026). Cada video se mide a los **7 días** (criterio: suficiente para que pase su primer recorrido y comparable entre videos). Qué pedir de cada video y cómo se llama en TikTok Studio (oficial, Creator Academy, «Analytics»):
+Las métricas las trae Emi: capturas de TikTok Studio → Analytics, cada domingo (decisión del 13/11/2026). Cada video se mide a los **7 días** (criterio: suficiente para que pase su primer recorrido y comparable entre videos). Qué pedir de cada video. Los nombres en inglés son los que se usan en la app; la Creator Academy describe retención, tiempo promedio, «Watched full video» y fuentes de tráfico (oficial), pero el nombre exacto de cada etiqueta se confirma con la primera captura de Emi:
 
 | Métrica | En TikTok Studio | Clave en `valores` |
 |---|---|---|
@@ -49,7 +50,7 @@ tts metricas tt-2026-11-20-dof --capturado 2026-11-27 vistas=1520 tiempo_promedi
 3. Fuentes de tráfico: mucho «Para ti», el sistema lo está mostrando a desconocidos; mucha «Búsqueda», la descripción y las palabras clave funcionan.
 4. Si TikTok marcó el video como no elegible, se lee el motivo y se anota la lección.
 
-La demografía aparece con al menos 100 espectadores en el periodo y «Followers viewed» con 1,000 seguidores (oficial). Analytics guarda hasta 365 días por descarga (oficial).
+La demografía aparece con al menos 100 espectadores en el periodo y «Followers viewed» con 1,000 seguidores (oficial). Los rangos de fechas llegan a 365 días (oficial); por eso las capturas se guardan cada semana y no se depende de lo que quede en la app.
 
 **Criterio**: no se comparan números absolutos con otras redes (cada red mide distinto). Se compara cada video contra la mediana de los videos anteriores de la propia cuenta.
 

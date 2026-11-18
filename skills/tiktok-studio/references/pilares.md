@@ -25,7 +25,7 @@ El reparto vigente está en `cuenta/perfil.json` (`balance`) y lo calcula `tts b
 ## Límites permanentes
 
 1. **Nunca clientes ni asuntos** de ningún despacho, ni anonimizados. Los boletines se muestran con datos de ejemplo, rotulados así.
-2. **No nombrar a Castorena Abogados ni a sus licenciados.** Un video de otro espacio de Vox Studio (Castorena, MILLA, PAN) solo sale aquí si Emi lo pide y no muestra esa marca. El del DOF se revisó el 17/11/2026: no la muestra.
+2. **No nombrar a Castorena Abogados ni a sus licenciados.** Un video de otro espacio de Vox Studio solo sale aquí si Emi lo pide y no muestra la marca de ese espacio.
 3. **Sin ataques personales.** Se critica la decisión, la ley o el argumento, no a la persona.
 4. **Toda cita legal con fuente oficial verificada** (DOF, SCJN, Cámara de Diputados, gob.mx), con enlace en `fuentes`. Un error sobre el texto de una ley es justo el ejemplo de TikTok de contenido no elegible para el Para ti (oficial).
 5. **Informa u opina; no asesora un caso.** Nada de «si te pasa esto, haz aquello» para un asunto concreto.

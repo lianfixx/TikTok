@@ -15,6 +15,7 @@
   estado                                  regenera red/estado.json (contrato de la Matriz de Redes)
   fuentes revisar [--sellar]              comprueba que las fuentes oficiales sigan diciendo lo citado
   fuentes ver                             lista las fuentes y su última verificación
+  archivo RUTA.mp4                        sha256 del video (para la aprobación) y búsqueda de metadatos C2PA
   cuenta comprobar USUARIO                mira la página pública de TikTok: ¿existe la cuenta?
 
 Nada aquí publica, programa ni entra a TikTok: eso lo hace Emi, siempre con su visto bueno.
@@ -32,6 +33,7 @@ import re
 import sys
 import unicodedata
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -50,35 +52,44 @@ MUSICA = ("ninguna", "original", "biblioteca-tiktok", "comercial-licenciada")
 TZ_MX = dt.timezone(dt.timedelta(hours=-6))
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 
-# Límites de Emi (10 y 13/11/2026). El despacho vetado nunca se nombra.
-DESPACHO_VETADO = r"\bcastorena\b"
+# Límites de Emi (10 y 13/11/2026). El despacho vetado nunca se nombra: se busca sobre el texto
+# «aplanado» (sin acentos, sin guiones bajos y con 4→a, 0→o…), así que tampoco pasa en un hashtag.
+DESPACHO_VETADO = r"castorena"
+LEET = str.maketrans({"0": "o", "1": "i", "3": "e", "4": "a", "5": "s", "7": "t", "@": "a", "$": "s", "_": " "})
 ASUNTOS = [
     r"\b(?:mis?|nuestr[oa]s?|un|una|unos|unas|el|la|los|las|ese|esa|este|esta)\s+client[ea]s?\b",
     r"\b(?:expediente|exp\.)\s*(?:n[uú]m(?:ero|\.)?\s*)?\d",
     r"\b(?:amparo|juicio|toca|asunto|causa)\s+(?:(?:directo|indirecto|laboral|penal|civil|en revisi[oó]n)\s+)?(?:n[uú]m(?:ero|\.)?\s*)?\d+/\d{4}\b",
     r"\ben el despacho\s+(?:llevamos|tenemos|vimos|lleg[oó]|atendimos)\b",
 ]
-# Regla absoluta de Emi del 13/11/2026: ninguna pieza dice que la hizo una IA.
-_IA = r"(?:una\s+|la\s+|el\s+)?(?:ia|inteligencia artificial|chatgpt|claude|gemini|grok|copilot|un modelo de lenguaje|la m[aá]quina)\b"
+# Regla absoluta de Emi del 13/11/2026: ninguna pieza dice que la hizo una IA. Error cuando habla de
+# esta pieza o de Emi; solo aviso cuando narra lo que una IA hizo en otro lado (eso es tema del pilar).
+_IA = r"(?:una\s+|la\s+|el\s+)?(?:ia|i\.a\.|inteligencia artificial|chatgpt|claude|gemini|grok|copilot|un modelo de lenguaje|la m[aá]quina)\b"
+_VERBO = r"(?:hizo|arm[oó]|escribi[oó]|gener[oó]|cre[oó]|edit[oó]|redact[oó]|dise[nñ][oó]|produjo|narr[oó]|anim[oó]|grab[oó]|mont[oó])"
+_PIEZA = r"(?:este|esta|el|la|mi|nuestro|nuestra)\s+(?:video|v[ií]deo|guion|gui[oó]n|texto|post|voz|imagen|im[aá]genes|edici[oó]n|tiktok|pieza|descripci[oó]n|narraci[oó]n|portada)"
 AUTORIA_IA = [
-    r"\b(?:escrit|redactad|generad|cread|hech|armad|editad|producid|disenad|diseñad|narrad|animad)[oa]s?\s+(?:por|desde|con)\s+" + _IA,
-    r"\b(?:hizo|armó|armo|escribió|escribio|generó|genero|creó|creo|editó|edito|redactó|redacto|diseñó|diseno|produjo|narró|narro|animó|animo)\s+" + _IA,
-    r"\b(?:texto|post|video|imagen|voz|guion|guión|edici[oó]n)\s+(?:de|hech[oa]\s+con|generad[oa]\s+con)\s+(?:una\s+)?ia\b",
+    r"\b(?:escrit|redactad|generad|cread|hech|armad|editad|producid|dise[nñ]ad|narrad|animad)[oa]s?\s+(?:100\s*%\s+|totalmente\s+|todo\s+|completamente\s+)?(?:por|desde|con)\s+" + _IA,
+    rf"\b(?:lo|la|los|las|me\s+lo|me\s+la|esto|{_PIEZA})\s+(?:lo\s+|la\s+)?{_VERBO}\s+" + _IA,
+    rf"\b{_IA}\s+(?:me\s+)?{_VERBO}\s+(?:{_PIEZA}|esto|todo|lo\s+que\s+ves|lo\s+que\s+escuchas)",
+    r"\b(?:lo|la)?\s*(?:hice|hicimos|arm[eé]|cre[eé]|gener[eé]|edit[eé]|escrib[ií])\s+(?:todo\s+|100\s*%\s+)?con\s+" + _IA,
+    r"\b(?:texto|post|video|imagen|voz|guion|guión|edici[oó]n|narraci[oó]n)\s*(?:[:=]|por|de|hech[oa]\s+con|generad[oa]\s+con)\s*(?:una\s+)?(?:ia|chatgpt|claude|gemini|grok|copilot)\b",
     r"\bvoz\s+(?:sint[eé]tica|artificial|clonada)\b",
 ]
+AUTORIA_IA_TERCEROS = [rf"\b{_VERBO}\s+" + _IA, rf"\b{_IA}\s+{_VERBO}\b"]
 # Anzuelos: el trueque o la orden de interacción dirigida al espectador (Normas: «manipulate people
 # into giving gifts or inflating likes or follows»). No se castiga una pregunta real.
-_ACCION = r"(?:like|me gusta|corazón|corazon|follow|sígueme|sigueme|regalo|regalos|rosa|rosas|guarda|guárdalo|guardalo|comparte|compártelo|compartelo)"
+_ACCION = r"(?:like|likes|me gusta|coraz[oó]n|corazones|follow|s[ií]gueme|regalo|regalos|rosa|rosas|gu[aá]rd(?:a|alo|ala)|comp[aá]rt(?:e|elo|ela))"
 ANZUELOS = [
-    rf"\b(?:dale|denle|dame|denme|deme|regálame|regalame|mándame|mandame)\s+(?:un\s+|tu\s+|una\s+)?{_ACCION}",
-    r"\b(?:comenta|comenten|escribe|escriban|pon|pongan|responde|respondan)\s+(?:la\s+palabra\s+)?[\"«“']?[A-ZÁÉÍÓÚÑ0-9]{2,}[\"»”']?\s+(?:y|para|si)\b",
-    rf"\b(?:{_ACCION}|comenta\w*|s[ií]g[ua]\w*)\b[^.\n]{{0,45}}\by\s+(?:te|les)\s+(?:l[oa]s?\s+)?(?:mando|paso|env[ií]o|regalo|comparto|sigo|doy)\b",
-    rf"(?:^|[.!?¿¡\n]\s*)(?:{_ACCION}|dale like|dale corazón)\s+si\b",
+    rf"\b(?:dale|denle|dame|denme|deme|reg[aá]lame|m[aá]ndame)\s+(?:un\s+|tu\s+|una\s+|tus\s+)?{_ACCION}",
+    r"\b(?i:comenta|comenten|escribe|escriban|pon|pongan|responde|respondan)\s+(?i:la\s+palabra\s+)?[\"«“']?[A-ZÁÉÍÓÚÑ0-9]{2,}[\"»”']?\s+(?i:y|para|si)\b",
+    rf"\b(?:{_ACCION}|comenta\w*|s[ií]g(?:ue|a)n?me\w*)\b[^.\n]{{0,45}}\by\s+(?:te|les)\s+(?:l[oa]s?\s+)?(?:mando|paso|env[ií]o|regalo|comparto|sigo|doy)\b",
+    rf"(?:^|[.!?¿¡\n]\s*)(?:{_ACCION}|dale like|dale coraz[oó]n)\s+si\b",
     r"(?:^|[.!?¿¡\n]\s*)etiqueta(?:n)?\s+a\s+(?:ese|esa|tu|tus|un|una|alguien|quien|\d)",
     r"\bs[ií]g(?:ue|a)n?me(?:n)?\s+(?:para|y)\s+(?:m[aá]s|la\s+parte|parte|ver)",
     r"\bfollow\s*(?:x|por)\s*follow\b|\bsigo\s+de\s+vuelta\b",
+    r"\bsi\s+(?:llega(?:mos|s)?|pasa(?:mos)?|junta(?:mos)?)\s+(?:a\s+)?[\d.,]+\s*(?:mil|k)?\s*(?:likes|me gusta|seguidores|comentarios|corazones)",
 ]
-_ANZUELO_MAYUS = {1}
+ANZUELOS_LEVES = [r"\bcomp[aá]rt(?:e|elo|ela)\s+con\s+(?:alguien|quien|tu|tus)\b", r"\bgu[aá]rd(?:a|alo|ala)\s+(?:para|este|esto)\b"]
 INSULTOS = r"\b(?:idiotas?|imb[eé]cil(?:es)?|pendej[oa]s?|est[uú]pid[oa]s?|tarad[oa]s?|mierdas?)\b"
 INSULTOS_LEVES = r"\b(?:rat(?:a|ero|era)s?|payas[oa]s?|inept[oa]s?|basuras?|delincuentes?|c[ií]nic[oa]s?|vendid[oa]s?)\b"
 MODISMOS_VETADOS = r"\bg[uü]e[yi]\b|\bwey\b"  # Emi, 13/11/2026: «quítalo, suena horrible»
@@ -89,11 +100,13 @@ PLANTILLA_IA = [
     r"\bun antes y un despu[eé]s\b", r"\bcambi[oó] las reglas del juego\b", r"\bdesbloquea\b", r"\bpotencia tu\b",
 ]
 DERECHO = re.compile(
-    r"\bart[ií]culos?\s+\d+|\bart\.\s*\d+|\btesis\b|\bjurisprudencia\b|\bconstituci[oó]n\b|\bconstitucional(?:es)?\b"
-    r"|\bley\s+(?:federal|general|org[aá]nica|de|del)\b|\bc[oó]digo\s+(?:civil|penal|fiscal|nacional|de)\b"
-    r"|\bdof\b|\bdiario oficial\b|\bscjn\b|\bsuprema corte\b|\breforma\b|\btransitorio\b", re.I)
-MILLA = re.compile(r"\bmilla\s+abogados\b|\bmillabogados\b|\bcontr[aá]ta(?:me|nos)\b|\bagenda\s+(?:tu|una)\s+(?:cita|asesor[ií]a)\b", re.I)
-HASHTAG = re.compile(r"(?<![\w&])#([\wÁÉÍÓÚÑáéíóúñü]+)", re.U)
+    r"\bart[ií]culos?\s+\d+|\barts?\.?\s*\d+|\btesis\b|\bjurisprudencia\b|\bconstituci[oó]n\b|\bconstitucional(?:es)?\b"
+    r"|\bley\s+(?:federal|general|org[aá]nica|nacional|de|del|para)\b|\bc[oó]digo\s+(?:civil|penal|fiscal|nacional|de\s+comercio|de\s+procedimientos|federal)\b"
+    r"|\bdof\b|\bdiario oficial\b|\bscjn\b|\bsuprema corte\b|\bla corte\b|\btribunal(?:es)?\s+colegiad|\btransitorio\b"
+    r"|\breforma\s+(?:constitucional|judicial|laboral|electoral|fiscal|a\s+la\s+ley|al?\s+(?:art|c[oó]digo))"
+    r"|\b(?:lft|cpeum|cff|cnpcf|lisr|lamparo|ley de amparo|ine|tepjf|tfja)\b", re.I)
+MILLA = re.compile(r"\bmilla\s*abogados\b|\bmillabogados\b|\bcontr[aá]ta(?:me|nos)\b|\bagenda\s+(?:tu|una)\s+(?:cita|asesor[ií]a)\b", re.I)
+HASHTAG = re.compile(r"[#＃]([^\s#＃.,;:!?¡¿()\[\]{}\"'«»“”]+)")
 
 
 # ------------------------------------------------------------------ utilidades
@@ -121,8 +134,17 @@ def normalizar(texto: str) -> str:
     return re.sub(r"\s+", " ", t).strip()
 
 
+def aplanar(texto: str) -> str:
+    """Minúsculas, sin acentos y con sustituciones de letras (4→a, 0→o, _→espacio), para nombres vetados."""
+    t = unicodedata.normalize("NFD", normalizar(texto))
+    return "".join(c for c in t if unicodedata.category(c) != "Mn").translate(LEET)
+
+
 def fecha(valor: str) -> dt.datetime:
-    d = dt.datetime.fromisoformat(str(valor))
+    texto = str(valor).strip()
+    if texto.endswith(("Z", "z")):  # Python < 3.11 no acepta «Z»
+        texto = texto[:-1] + "+00:00"
+    d = dt.datetime.fromisoformat(texto)
     if d.tzinfo is None:
         raise ValueError("sin zona horaria")
     return d
@@ -150,15 +172,20 @@ def textos(p: dict) -> str:
     return "\n".join(str(x) for x in partes if x)
 
 
+CAMPOS_APROBADOS = ("descripcion", "gancho", "texto_pantalla", "portada", "archivo", "archivo_sha256", "fecha", "musica",
+                    "subtitulos_quemados", "etiqueta_ia", "divulgacion_comercial", "fuentes", "medios")
+
+
 def huella(p: dict) -> str:
-    """Huella de lo que Emi aprueba: descripción, gancho, rótulos y portada."""
-    base = {k: p.get(k) for k in ("descripcion", "gancho", "texto_pantalla", "portada", "archivo")}
+    """Huella de todo lo que Emi aprueba y de lo que el paquete de entrega imprime, incluido el MP4 (su sha256)."""
+    base = {k: p.get(k) for k in CAMPOS_APROBADOS}
     return hashlib.sha256(json.dumps(base, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
 
 
 def huella_texto(descripcion: str) -> str:
-    """Huella del contrato de la Matriz de Redes: sha256 de los primeros 280 caracteres normalizados."""
-    return hashlib.sha256(normalizar(descripcion)[:280].encode("utf-8")).hexdigest()
+    """Huella para la Matriz de Redes, igual que su `redes.py` y x-viral: SHA-256 del texto NFC sin espacios a los
+    lados, primeros 12 hex. Así la Matriz puede detectar el mismo texto en varias redes."""
+    return hashlib.sha256(unicodedata.normalize("NFC", descripcion or "").strip().encode("utf-8")).hexdigest()[:12]
 
 
 def publicados() -> list[dict]:
@@ -169,7 +196,16 @@ def publicados() -> list[dict]:
 
 
 def hashtags_de(texto: str) -> list[str]:
-    return [h.lower() for h in HASHTAG.findall(texto or "")]
+    return [h.lower() for h in HASHTAG.findall(unicodedata.normalize("NFC", texto or ""))]
+
+
+def es_oficial(url: str, dominios: tuple) -> bool:
+    try:
+        partes = urllib.parse.urlsplit(url)
+    except ValueError:
+        return False
+    host = (partes.hostname or "").lower().rstrip(".")
+    return partes.scheme in ("http", "https") and any(host == d or host.endswith("." + d) for d in dominios)
 
 
 # ------------------------------------------------------------------ revisar
@@ -206,7 +242,7 @@ def revisar_pieza(p: dict, para: str = "", previas: list[str] | None = None, hoy
         seg = g.get("segundos")
         if isinstance(seg, (int, float)):
             if seg > r["gancho_s"]["max"]:
-                errores.append(f"el gancho llega a los {seg} s; TikTok pide engancharse en los primeros 3, a más tardar 5 (oficial)")
+                errores.append(f"el gancho llega a los {seg} s; TikTok habla de los primeros 3 s y, en otra guía, «ideally within the first 5 seconds» (oficial); pasar de 5 es criterio de esta skill")
             elif seg > r["gancho_s"]["ideal"]:
                 avisos.append(f"el gancho termina a los {seg} s; lo ideal son 3 (oficial)")
     if p.get("formato") == "video" and not p.get("duracion_objetivo_s"):
@@ -216,16 +252,16 @@ def revisar_pieza(p: dict, para: str = "", previas: list[str] | None = None, hoy
     plano = normalizar(texto)
 
     # Límites de Emi
-    if re.search(DESPACHO_VETADO, plano):
+    if re.search(DESPACHO_VETADO, aplanar(texto)):
         errores.append("menciona a Castorena: prohibido en la cuenta personal")
     for patron in ASUNTOS:
         if re.search(patron, plano):
             errores.append("parece hablar de clientes o asuntos de un despacho: prohibido, ni anonimizados")
             break
-    for patron in AUTORIA_IA:
-        if re.search(patron, plano):
-            errores.append("dice o sugiere que una IA hizo la pieza: regla absoluta de Emi (13/11/2026)")
-            break
+    if any(re.search(patron, plano) for patron in AUTORIA_IA):
+        errores.append("dice o sugiere que una IA hizo la pieza: regla absoluta de Emi (13/11/2026)")
+    elif any(re.search(patron, plano) for patron in AUTORIA_IA_TERCEROS):
+        avisos.append("habla de lo que hizo una IA: está bien si es de otro caso, nunca de esta pieza (regla absoluta de Emi)")
     if re.search(INSULTOS, plano):
         errores.append("insulto: sin ataques personales")
     elif re.search(INSULTOS_LEVES, plano):
@@ -233,9 +269,12 @@ def revisar_pieza(p: dict, para: str = "", previas: list[str] | None = None, hoy
     if re.search(MODISMOS_VETADOS, plano):
         errores.append("«güey» y modismos así están fuera (Emi, 13/11/2026)")
     for i, patron in enumerate(ANZUELOS):
-        if re.search(patron, texto if i in _ANZUELO_MAYUS else plano, 0 if i in _ANZUELO_MAYUS else re.I):
+        if re.search(patron, texto) if i == 1 else re.search(patron, plano, re.I):  # el 1 distingue la palabra clave en mayúsculas
             errores.append("anzuelo de interacción: TikTok saca del Para ti lo que manipula para inflar likes, follows o regalos (oficial)")
             break
+    else:
+        if any(re.search(patron, plano) for patron in ANZUELOS_LEVES):
+            avisos.append("pide guardar o compartir: que sea una invitación que aporte, no un trueque (criterio)")
     for patron in PLANTILLA_IA:
         if re.search(patron, plano):
             avisos.append("frase de plantilla («" + re.search(patron, plano).group(0) + "»): que Emi la reescriba con su voz")
@@ -246,8 +285,7 @@ def revisar_pieza(p: dict, para: str = "", previas: list[str] | None = None, hoy
     # Derecho y política
     if DERECHO.search(texto):
         dominios = tuple(r["dominios_oficiales"])
-        oficiales = [f for f in (p.get("fuentes") or []) if re.match(r"https?://", str(f))
-                     and any(re.search(r"(?:^|[./])" + re.escape(d) + r"(?:[/:?#]|$)", re.sub(r"^https?://", "", str(f))) for d in dominios)]
+        oficiales = [f for f in (p.get("fuentes") or []) if es_oficial(str(f), dominios)]
         if not oficiales:
             errores.append("cita derecho (artículo, ley, DOF, tesis o reforma) sin fuente oficial verificada en «fuentes»")
     if p.get("pilar") == "politica" and not str(p.get("opinion_emi", "")).strip():
@@ -263,7 +301,7 @@ def revisar_pieza(p: dict, para: str = "", previas: list[str] | None = None, hoy
         errores.append(f"descripción de {len(desc)} caracteres; la skill no pasa de {r['descripcion_max']} (límite oficial no verificado)")
     tags = hashtags_de(desc)
     if len(tags) > r["hashtags"]["max"]:
-        errores.append(f"{len(tags)} hashtags; TikTok recomienda 2 o 3 relevantes y muchos «can actually work against you» (oficial)")
+        errores.append(f"{len(tags)} hashtags; TikTok recomienda 2 o 3 relevantes (oficial) y esta skill no pasa de 5 (criterio)")
     elif len(tags) > r["hashtags"]["recomendados_max"]:
         avisos.append(f"{len(tags)} hashtags; TikTok recomienda 2 o 3 (oficial)")
     elif not tags:
@@ -327,6 +365,8 @@ def revisar_pieza(p: dict, para: str = "", previas: list[str] | None = None, hoy
             errores.append("el texto cambió después de la aprobación (o no hay aprobación): Emi tiene que aprobar esta versión")
         if not p.get("archivo"):
             errores.append("falta «archivo»: el MP4 aprobado (nombre y dónde está)")
+        if not re.fullmatch(r"[0-9a-f]{64}", str(p.get("archivo_sha256", ""))):
+            errores.append("falta «archivo_sha256» (tiktokstudio.py archivo RUTA): sin él no se sabe si el MP4 es el que Emi aprobó")
     return errores, avisos
 
 
@@ -351,30 +391,34 @@ def cmd_revisar(args) -> int:
     return 1 if total else 0
 
 
-def revisar_semana(piezas: list[dict]) -> tuple[list[str], list[str]]:
+def revisar_semana(piezas: list[dict], previas: list[dict] | None = None) -> tuple[list[str], list[str]]:
+    """Cadencia sobre las piezas nuevas y lo ya publicado: por día, separación y tope en cualquier ventana de 7 días."""
     errores: list[str] = []
     avisos: list[str] = []
     c = reglas()["cadencia"]
+    ids = {p.get("id") for p in piezas}
+    todas = list(piezas) + [x for x in (publicados() if previas is None else previas) if x.get("id") not in ids]
     con_fecha = []
-    for p in piezas:
+    for p in todas:
         try:
             con_fecha.append((fecha(p["fecha"]), p))
         except (KeyError, ValueError):
             pass
     con_fecha.sort(key=lambda x: x[0])
     por_dia: dict[str, int] = {}
-    por_semana: dict[str, int] = {}
     for f, p in con_fecha:
-        dia = f.astimezone(TZ_MX).date()
-        por_dia[dia.isoformat()] = por_dia.get(dia.isoformat(), 0) + 1
-        sem = "%d-W%02d" % dia.isocalendar()[:2]
-        por_semana[sem] = por_semana.get(sem, 0) + 1
+        dia = f.astimezone(TZ_MX).date().isoformat()
+        por_dia[dia] = por_dia.get(dia, 0) + 1
     for dia, n in por_dia.items():
         if n > c["max_por_dia"]:
             errores.append(f"{dia}: {n} videos; máximo {c['max_por_dia']} por día (criterio)")
-    for sem, n in por_semana.items():
-        if n > c["max_por_semana"]:
-            errores.append(f"{sem}: {n} videos; máximo {c['max_por_semana']} por semana mientras se aprende (criterio)")
+    semana = dt.timedelta(days=7)
+    for i, (f, p) in enumerate(con_fecha):
+        dentro = [q for g, q in con_fecha[i:] if g - f < semana]
+        if len(dentro) > c["max_por_semana"]:
+            errores.append(f"del {f.astimezone(TZ_MX):%d/%m} en 7 días: {len(dentro)} videos ({', '.join(str(q.get('id')) for q in dentro)}); "
+                           f"máximo {c['max_por_semana']} en cualquier ventana de 7 días mientras se aprende (criterio)")
+            break
     for (f1, p1), (f2, p2) in zip(con_fecha, con_fecha[1:]):
         horas = (f2 - f1).total_seconds() / 3600
         if horas < c["separacion_min_h"]:
@@ -538,9 +582,12 @@ def _valor(v: str):
         return int(v)
     except ValueError:
         try:
-            return float(v)
+            n = float(v)
         except ValueError:
             return v
+        if n != n or n in (float("inf"), float("-inf")):
+            raise ValueError(f"«{v}» no es un número válido")
+        return n
 
 
 def cmd_metricas(args) -> int:
@@ -549,6 +596,11 @@ def cmd_metricas(args) -> int:
     reg = next((x for x in pubs if x.get("id") == args.id), None)
     if not reg:
         print(f"no está anotado: {args.id}")
+        return 1
+    try:
+        dt.date.fromisoformat(args.capturado)
+    except ValueError:
+        print("--capturado debe ser una fecha AAAA-MM-DD")
         return 1
     valores = {}
     for par in args.valores:
@@ -559,7 +611,11 @@ def cmd_metricas(args) -> int:
         if not re.match(r"^[a-z][a-z0-9_]*$", k):
             print(f"clave «{k}»: usar snake_case")
             return 1
-        valores[k] = _valor(v)
+        try:
+            valores[k] = _valor(v)
+        except ValueError as exc:
+            print(exc)
+            return 1
     reg["metricas"] = {"capturado": args.capturado, "fuente": args.fuente, "valores": valores}
     ruta.write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in pubs), encoding="utf-8")
     print(f"Métricas de {args.id} anotadas.")
@@ -669,6 +725,27 @@ def cmd_estado(args) -> int:
 
 # ------------------------------------------------------------------ fuentes y cuenta (solo lectura de páginas públicas)
 
+def cuerpo(crudo: str) -> str:
+    """Solo el texto del artículo o de la página, sin menús ni avances de otros artículos.
+
+    Creator Academy trae el artículo en JSON («articleData» → «content»); las demás páginas, en <main>.
+    """
+    i = crudo.find('"articleData":{"article":')
+    if i >= 0:
+        j = crudo.find('"content":', i)
+        if j >= 0:
+            try:
+                contenido, _ = json.JSONDecoder().raw_decode(crudo, j + len('"content":'))
+                if isinstance(contenido, str):
+                    return texto_visible(contenido)
+            except ValueError:
+                pass
+    m = re.search(r"(?is)<main\b[^>]*>(.*)</main>", crudo)
+    zona = m.group(1) if m else crudo
+    zona = re.sub(r"(?is)<(script|style|noscript)\b[^>]*>.*?</\1>", " ", zona)
+    return texto_visible(zona)
+
+
 def texto_visible(crudo: str) -> str:
     # Se conserva el texto de los <script>: varias páginas de TikTok traen el artículo como JSON incrustado.
     for esc, car in (("\\u002F", "/"), ("\\u003c", "<"), ("\\u003e", ">"), ("\\u0026", "&"), ("\\u0027", "'"), ('\\"', '"')):
@@ -683,10 +760,40 @@ def contiene(pagina: str, frase: str) -> bool:
     return norm(frase) in norm(pagina)
 
 
-def bajar(url: str, tiempo: int = 30) -> str:
+def bajar(url: str, tiempo: int = 30) -> tuple[str, str]:
+    """Devuelve (texto crudo, dirección final después de redirecciones)."""
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "en-US,en;q=0.9"})
     with urllib.request.urlopen(req, timeout=tiempo) as resp:
-        return resp.read().decode("utf-8", errors="ignore")
+        return resp.read().decode("utf-8", errors="ignore"), resp.geturl()
+
+
+def misma_direccion(a: str, b: str) -> bool:
+    limpiar = lambda u: urllib.parse.urlsplit(u)._replace(query="", fragment="").geturl().rstrip("/").lower()
+    return limpiar(a) == limpiar(b)
+
+
+def revisar_fuentes(datos: dict, leer=bajar, solo: str = "") -> tuple[list, list, list, list[str]]:
+    """Devuelve (frases que faltan, páginas sin leer, direcciones que cambiaron, líneas de informe)."""
+    faltan, sin_leer, movidas, informe = [], [], [], []
+    for f in datos["fuentes"]:
+        if solo and f["id"] != solo:
+            continue
+        try:
+            crudo, final = leer(f["url"])
+        except (urllib.error.URLError, TimeoutError, OSError, ValueError) as exc:
+            sin_leer.append(f["id"])
+            informe.append(f"NO SE LEYÓ {f['id']}: {exc}")
+            continue
+        if not misma_direccion(final, f["url"]):
+            movidas.append((f["id"], final))
+            informe.append(f"MOVIDA {f['id']}: ahora responde {final}")
+        pagina = cuerpo(crudo)
+        for fr in f["frases"]:
+            ok = contiene(pagina, fr["texto"])
+            informe.append(f"{'ok   ' if ok else 'FALTA'} {f['id']}: «{fr['texto']}»")
+            if not ok:
+                faltan.append((f["id"], fr))
+    return faltan, sin_leer, movidas, informe
 
 
 def cmd_fuentes(args) -> int:
@@ -697,33 +804,22 @@ def cmd_fuentes(args) -> int:
         for f in datos["fuentes"]:
             print(f"- {f['id']}: {f['titulo']} ({len(f['frases'])} frase(s))\n  {f['url']}")
         return 0
-    faltan, sin_leer = [], []
-    for f in datos["fuentes"]:
-        if args.solo and f["id"] != args.solo:
-            continue
-        try:
-            pagina = texto_visible(bajar(f["url"]))
-        except (urllib.error.URLError, TimeoutError, OSError) as exc:
-            sin_leer.append(f["id"])
-            print(f"NO SE LEYÓ {f['id']}: {exc}")
-            continue
-        for fr in f["frases"]:
-            ok = contiene(pagina, fr["texto"])
-            print(f"{'ok   ' if ok else 'FALTA'} {f['id']}: «{fr['texto']}»")
-            if not ok:
-                faltan.append((f["id"], fr))
+    faltan, sin_leer, movidas, informe = revisar_fuentes(datos, solo=args.solo)
+    print("\n".join(informe))
     for fid, fr in faltan:
         print(f"Revisar regla → {fr['regla']} (fuente {fid})")
     total = sum(1 for f in datos["fuentes"] if not args.solo or f["id"] == args.solo)
-    if faltan:
-        print(f"Resultado: {len(faltan)} frase(s) ya no aparecen. La regla puede haber cambiado: leer la página y actualizar.")
+    if faltan or movidas:
+        print(f"Resultado: {len(faltan)} frase(s) ya no aparecen y {len(movidas)} página(s) cambiaron de dirección. "
+              "La regla puede haber cambiado: leer la página y actualizar data/fuentes.json y la referencia.")
         return 1
     if sin_leer and len(sin_leer) == total:
-        print("Resultado: no se pudo leer ninguna página (¿bloqueo de red?). No es un cambio; repetir desde otra conexión.")
+        print("Resultado: no se pudo leer ninguna página (¿bloqueo de red?). Repetir desde otra conexión.")
         return 2
     if sin_leer:
-        print(f"Resultado: sin cambios en lo leído; {len(sin_leer)} página(s) sin leer: {', '.join(sin_leer)}.")
-        return 0
+        print(f"Resultado: {len(sin_leer)} página(s) sin leer ({', '.join(sin_leer)}): una página borrada no se puede "
+              "distinguir de una caída pasajera, así que no se da por buena. Repetir; si sigue, abrirla a mano.")
+        return 3
     print("Resultado: todas las frases siguen en su fuente.")
     if args.sellar and not args.solo:
         datos["verificado"] = dt.datetime.now(TZ_MX).date().isoformat()
@@ -748,13 +844,35 @@ def cmd_cuenta(args) -> int:
         print("usuario inválido")
         return 2
     try:
-        pagina = bajar(f"https://www.tiktok.com/@{usuario}")
+        pagina, _ = bajar(f"https://www.tiktok.com/@{usuario}")
     except (urllib.error.URLError, TimeoutError, OSError) as exc:
         print(f"No se pudo leer la página pública: {exc}")
         return 2
     res = estado_cuenta(pagina, usuario)
     print(f"@{usuario}: {res} (lectura de la página pública; confirmar abriéndola en un navegador)")
     return {"existe": 0, "no existe": 1}.get(res, 2)
+
+
+def cmd_archivo(args) -> int:
+    """Huella del MP4 y búsqueda de metadatos C2PA (Content Credentials), que harían que TikTok lo etiquete solo."""
+    ruta = Path(args.ruta)
+    if not ruta.is_file():
+        print(f"no existe: {ruta}")
+        return 1
+    h = hashlib.sha256()
+    c2pa = False
+    with ruta.open("rb") as f:
+        previo = b""
+        for bloque in iter(lambda: f.read(1 << 20), b""):
+            h.update(bloque)
+            ventana = (previo + bloque).lower()
+            c2pa = c2pa or any(m in ventana for m in (b"c2pa", b"jumbf", b"contentauth", b"jumd"))
+            previo = bloque[-16:]
+    print(f"archivo_sha256: {h.hexdigest()}")
+    print(f"tamaño: {ruta.stat().st_size:,} bytes")
+    print("C2PA: " + ("ENCONTRADO: TikTok podría etiquetarlo como IA; pedir a la productora un render sin esos metadatos"
+                      if c2pa else "no se encontraron marcas (c2pa, jumbf); revisión por bytes, no exhaustiva"))
+    return 2 if c2pa else 0
 
 
 # ------------------------------------------------------------------ CLI
@@ -781,6 +899,7 @@ def main(argv: list[str] | None = None) -> int:
     s = sub.add_parser("estado"); s.set_defaults(f=cmd_estado)
     s = sub.add_parser("fuentes"); s.add_argument("accion", choices=["revisar", "ver"]); s.add_argument("--sellar", action="store_true")
     s.add_argument("--solo", default=""); s.set_defaults(f=cmd_fuentes)
+    s = sub.add_parser("archivo"); s.add_argument("ruta"); s.set_defaults(f=cmd_archivo)
     s = sub.add_parser("cuenta"); s.add_argument("accion", choices=["comprobar"]); s.add_argument("usuario"); s.set_defaults(f=cmd_cuenta)
     args = ap.parse_args(argv)
     return args.f(args)

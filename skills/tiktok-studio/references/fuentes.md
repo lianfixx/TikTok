@@ -30,6 +30,6 @@ Blogs de «gurús», cifras sin método y lo que «todo el mundo dice» no cuent
 - `FALTA`: la frase ya no aparece. Puede ser un cambio de redacción o de regla: leer la página y actualizar la regla, la frase y la versión.
 - `NO SE LEYÓ`: la página no respondió. No cuenta como cambio. Si ninguna respondió (salida 2), probablemente TikTok bloqueó la lectura desde GitHub; repetir a mano o desde box.
 
-Última revisión completa: 17/11/2026, 35 de 35 frases presentes en 16 fuentes.
+Última revisión completa: 17/11/2026, 34 de 34 frases presentes en 16 fuentes, buscadas solo dentro del artículo (no en menús ni en avances de otros artículos). La revisión también falla si una página cambia de dirección o no se puede leer.
 
 Cuando aparezca una página oficial nueva que importe (por ejemplo, un cambio en las Normas de la Comunidad), se añade a `data/fuentes.json` con su frase y la regla que sostiene.

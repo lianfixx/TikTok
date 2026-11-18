@@ -8,18 +8,43 @@
   "idea": "Entrenar a las 6 a. m. antes de la oficina, sin romantizarlo",
   "angulo": "La disciplina no es motivación: es no negociar la alarma",
   "para_quien": "Profesionistas jóvenes que dicen que no tienen tiempo de entrenar",
-  "gancho": {"texto_pantalla": "5:40 a. m. y nadie me obliga", "voz": "Nadie me obliga a estar aquí a esta hora.", "visual": "Toma de la alarma y corte al gym vacío", "segundos": 2},
-  "texto_pantalla": ["5:40 a. m.", "Gym vacío", "8:30 en la oficina"],
+  "gancho": {
+    "texto_pantalla": "5:40 a. m. y nadie me obliga",
+    "voz": "Nadie me obliga a estar aquí a esta hora.",
+    "visual": "Toma de la alarma y corte al gym vacío",
+    "segundos": 2
+  },
+  "texto_pantalla": [
+    "5:40 a. m.",
+    "Gym vacío",
+    "8:30 en la oficina"
+  ],
   "duracion_objetivo_s": 35,
   "descripcion": "Nadie me obliga a entrenar a las 5:40 y por eso no lo negocio. ¿A qué hora entrenas tú? #gym #abogado",
-  "hashtags": ["gym", "abogado"],
-  "portada": {"segundo": 1, "texto": "5:40 a. m."},
-  "etiqueta_ia": {"requiere": false, "motivo": "grabado por Emi, sin IA"},
-  "medios": {"persona_realista_ia": false, "escena_realista_ia": false, "voz_ia_reconocible": false, "voz_ia_generica": false, "origen_archivo": "master"},
+  "hashtags": [
+    "gym",
+    "abogado"
+  ],
+  "portada": {
+    "segundo": 1,
+    "texto": "5:40 a. m."
+  },
+  "etiqueta_ia": {
+    "requiere": false,
+    "motivo": "grabado por Emi, sin IA"
+  },
+  "medios": {
+    "persona_realista_ia": false,
+    "escena_realista_ia": false,
+    "voz_ia_reconocible": false,
+    "voz_ia_generica": false,
+    "origen_archivo": "master"
+  },
   "musica": "biblioteca-tiktok",
   "divulgacion_comercial": false,
   "subtitulos_quemados": false,
   "fuentes": [],
   "estado": "borrador",
-  "archivo": "Drive/TikTok/ejemplo.mp4"
+  "archivo": "Drive/TikTok/ejemplo.mp4",
+  "archivo_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
 }
