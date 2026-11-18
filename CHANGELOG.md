@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-17 · DOF aprobado, pieza en el panel y revisión mensual con sello
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 17/11/2026, en el chat de esta sesión: «Apruebo descripción»; «1.- Si 2.- Si» (que la revisión mensual selle sola y que Vox Studio lea el puente de TikTok); preguntó si se puede publicar por API.
+- Cambios: (1) Ficha privada del DOF aprobada con `tiktokstudio.py aprobar`: huella del MP4 del panel (`archivo_sha256` igual al del archivo revisado) y sin C2PA. (2) Pieza en el panel de la Matriz de Redes como «lista para aprobar» (id `eb716e244b02`, jueves 19/11 a las 19:30); el panel no publica TikTok: Emi la aprueba, la sube desde la app y marca «Ya la publiqué». (3) La revisión mensual (`fuentes.yml`) ahora sella la fecha y la registra con un commit propio cuando nada cambió; si algo cambió, solo avisa. `ia/REGLAS.md` lo documenta como excepción autorizada. (4) Petición a Vox Studio enviada a la Matriz de Redes para que la haga llegar. (5) Publicar por API: no hoy; la API oficial deja en privado lo que publica una app sin auditar (fuente vigilada `api-publicacion`).
+- Archivos: `.github/workflows/fuentes.yml`, `ia/REGLAS.md`, `skills/tiktok-studio/SKILL.md`, `docs/AUDITORIA-2026-11-17.md`, `puente/PETICION-vox.md`, `cuenta/{perfil.json,aprendizajes.md}`, `red/estado.json` y este registro.
+- Verificación: `tiktokstudio.py entregar` → paquete sin errores; panel → pieza creada sin errores de revisión (181 caracteres); `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: que Emi apruebe la pieza en el panel y la suba el jueves 19 a las 19:30; que mande el enlace para anotarla; su decisión sobre intentar la API.
+
 ## 2026-11-17 · Revisión mensual probada en GitHub
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: cierre de la auditoría del mismo día.

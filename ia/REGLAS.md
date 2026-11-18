@@ -2,7 +2,7 @@
 
 Valen igual en Claude, ChatGPT, Codex, Gemini o cualquier otra IA, y para personas. Escritas el 17/11/2026 a partir de lo que Emi decidió entre el 10 y el 13/11/2026; el protocolo común está en `ia/PROTOCOLO.md`.
 
-**Qué se aplica solo:** GitHub corre `python3 ia/verificar.py ci` en cada push y pull request (pruebas, SKILL.md y puentes, estado para la Matriz de Redes, registro con «Agente:», secretos, videos y borradores privados) y, cada mes, la revisión de fuentes oficiales (`fuentes.yml`, solo lectura); en GitHub Actions el control exige además que el último commit termine con `IA-Actor:`. **Qué no:** este repositorio no tiene los frenos automáticos (`guard.py`, `politica.json`, hooks de git) de otros repositorios de Emi; instalarlos cambia reglas comunes y requiere su confirmación. Mientras tanto, cada IA cumple estas reglas por sí misma.
+**Qué se aplica solo:** GitHub corre `python3 ia/verificar.py ci` en cada push y pull request (pruebas, SKILL.md y puentes, estado para la Matriz de Redes, registro con «Agente:», secretos, videos y borradores privados) y, cada mes, la revisión de fuentes oficiales (`fuentes.yml`), que solo sella la fecha cuando nada cambió; en GitHub Actions el control exige además que el último commit termine con `IA-Actor:`. **Qué no:** este repositorio no tiene los frenos automáticos (`guard.py`, `politica.json`, hooks de git) de otros repositorios de Emi; instalarlos cambia reglas comunes y requiere su confirmación. Mientras tanto, cada IA cumple estas reglas por sí misma.
 
 ## Prohibido
 
@@ -30,7 +30,7 @@ Valen igual en Claude, ChatGPT, Codex, Gemini o cualquier otra IA, y para person
 - Conectar la API de publicación de TikTok o cualquier herramienta con acceso a la cuenta.
 - Cambiar a cuenta de empresa, activar la divulgación comercial o promover a MILLA desde esta cuenta.
 - Cambiar estas reglas, los workflows o el protocolo.
-- Fusionar a la rama principal un pull request de otra IA. La revisión mensual de fuentes solo avisa; no abre ni fusiona nada.
+- Fusionar a la rama principal un pull request de otra IA. Excepción autorizada por Emi el 17/11/2026: la revisión mensual de fuentes (`fuentes.yml`), cuando todas las frases siguen en su fuente, sella la fecha en `data/fuentes.json` y lo registra en `CHANGELOG.md` con un commit propio. Si algo cambió, solo avisa; nunca cambia una regla.
 
 ## Qué del protocolo común no aplica aquí
 

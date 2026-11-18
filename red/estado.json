@@ -47,12 +47,18 @@
       "texto": "Un video hecho para otro espacio de Vox Studio solo va a la cuenta personal si no muestra ninguna marca ni nombre de ese espacio; se revisa cuadro por cuadro antes de subirlo.",
       "evidencia": "cuenta/aprendizajes.md",
       "alcance": "red"
+    },
+    {
+      "fecha": "2026-11-17",
+      "texto": "Emi aprobó la descripción del video del DOF tras corregirse «la ley te manda al cheque» por el texto real del art. 15: en descripciones legales, precisión antes que punch.",
+      "evidencia": "cuenta/aprendizajes.md",
+      "alcance": "red"
     }
   ],
   "ideas_para_otras": [],
   "pendientes_de_emi": [
     {
-      "que": "Aprobar la descripción B ajustada del video del DOF (o reescribirla)",
+      "que": "Aprobar en el panel la pieza de TikTok del DOF y subirla desde la app el jue 19/11 a las 19:30",
       "desde": "2026-11-17",
       "bloquea": "primer video"
     },

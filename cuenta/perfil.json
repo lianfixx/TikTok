@@ -22,7 +22,7 @@
   "modo": "Emi publica o programa en TikTok Studio; ninguna IA entra a la cuenta. API de publicación no conectada (exige app auditada por TikTok)",
   "pendientes_de_emi": [
     {
-      "que": "Aprobar la descripción B ajustada del video del DOF (o reescribirla)",
+      "que": "Aprobar en el panel la pieza de TikTok del DOF y subirla desde la app el jue 19/11 a las 19:30",
       "desde": "2026-11-17",
       "bloquea": "primer video"
     },
@@ -55,5 +55,5 @@
   "bio_elegida": "Disciplina > motivación. Derecho, gym y opiniones que incomodan.",
   "bio_nota": "Emi pidió frases cortas, estilo viral, sin decir «abogado» (17/11/2026). 64 caracteres; TikTok permite 80 según terceros (no verificado en fuente oficial)",
   "videos_propios": "gym o vlogs grabados por Emi, cada semana (Emi, 17/11/2026)",
-  "revision_fuentes": "mensual, primer domingo (Emi, 17/11/2026)"
+  "revision_fuentes": "mensual, primer domingo; sella y registra sola si nada cambió (Emi, 17/11/2026)"
 }

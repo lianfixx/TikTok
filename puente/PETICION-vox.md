@@ -2,7 +2,7 @@
 
 - De: skill tiktok-studio (`lianfixx/tiktok`), 17/11/2026, por encargo de Emi: una skill de TikTok propia que trabaje con Vox Studio, cada una con sus instrucciones separadas.
 - Para: quien mantenga `skills/vox-studio/` en `lianfixx/VIDEOS-IA-SKILL-MILLA`.
-- Estado: **preparada, no aplicada**. Avisada a Emi y a la Matriz de Redes el 17/11/2026. tiktok-studio no escribe en ese repositorio.
+- Estado: **autorizada por Emi el 17/11/2026, enviada a la Matriz de Redes para que la haga llegar a Vox Studio**; no aplicada todavía. tiktok-studio no escribe en ese repositorio.
 
 ## Qué se pide
 
