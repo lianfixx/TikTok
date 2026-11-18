@@ -202,6 +202,12 @@ class AprobarEntregar(Aislado):
         self.assertEqual(codigo, 0, salida)
         self.assertIn("Descripción (copiar tal cual)", salida)
         self.assertIn("Etiqueta de contenido generado con IA: apagada", salida)
+        codigo, salida = self.correr(["entregar", str(ruta), "tt-2099-01-06-ejemplo", "--panel"])
+        self.assertEqual(codigo, 0, salida)
+        cuerpo_panel = json.loads(salida)
+        self.assertEqual(cuerpo_panel["red"], "tiktok")
+        self.assertLessEqual(len(cuerpo_panel["app"]["ajustes"]), 15)
+        self.assertIn("cuadro del segundo 1", cuerpo_panel["app"]["portada"])
         datos = json.loads(ruta.read_text(encoding="utf-8"))
         datos["descripcion"] += " cambio"
         ruta.write_text(json.dumps(datos), encoding="utf-8")

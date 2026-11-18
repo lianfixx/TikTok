@@ -513,6 +513,29 @@ def paquete(p: dict) -> str:
     return "\n".join(lineas)
 
 
+def ajustes_app(p: dict) -> dict:
+    """Bloque «app» del panel de la Matriz de Redes: frases ya redactadas (máximo 15) y la portada."""
+    et = p.get("etiqueta_ia") or {}
+    portada = p.get("portada") or {}
+    musica = {"biblioteca-tiktok": "sonido de la biblioteca de TikTok, volumen mínimo", "ninguna": "no agregar",
+              "original": "no agregar (el video ya trae la suya)", "comercial-licenciada": "no agregar (el video ya trae música con licencia)"}
+    ajustes = [
+        "Etiqueta de contenido generado por IA: " + ("ACTIVAR" if et.get("requiere") else f"apagada ({et.get('motivo', 'no aplica')})"),
+        "Divulgar contenido comercial: " + ("ACTIVAR" if p.get("divulgacion_comercial") else "apagado"),
+        "Subtítulos automáticos: " + ("no (el video ya los trae)" if p.get("subtitulos_quemados") else "sí"),
+        "Música en la app: " + musica.get(p.get("musica"), "no agregar"),
+        "Quién puede verlo: Todos",
+        "Comentarios, Dúo y Stitch: " + ("permitidos" if not p.get("restricciones_interaccion") else str(p["restricciones_interaccion"])),
+    ]
+    if portada.get("archivo"):
+        port = f"subir {portada['archivo']}"
+    elif portada.get("segundo") is not None:
+        port = f"cuadro del segundo {portada['segundo']}" + (f" ({portada['texto']})" if portada.get("texto") else "")
+    else:
+        port = "el cuadro donde se lea el titular"
+    return {"ajustes": ajustes[:15], "portada": port}
+
+
 def cmd_entregar(args) -> int:
     p = buscar(piezas_de(leer_json(Path(args.archivo))), args.id)
     e, a = revisar_pieza(p, "entrega")
@@ -520,6 +543,15 @@ def cmd_entregar(args) -> int:
         imprimir(p, e, a)
         print("No se entrega con errores.")
         return 1
+    if args.panel:
+        cuerpo_panel = {"red": "tiktok", "titulo": p.get("titulo") or p["id"], "fecha": p["fecha"], "texto": p.get("descripcion", ""),
+                        "app": ajustes_app(p), "nota": f"Aprobada por Emi: {p.get('aprobado_medio', '')}"}
+        if p.get("panel_id"):
+            cuerpo_panel["id"] = p["panel_id"]
+        if p.get("panel_archivos"):
+            cuerpo_panel["archivos"] = p["panel_archivos"]
+        print(json.dumps(cuerpo_panel, ensure_ascii=False, indent=2))
+        return 0
     print(paquete(p))
     return 0
 
@@ -883,7 +915,9 @@ def main(argv: list[str] | None = None) -> int:
     s = sub.add_parser("revisar"); s.add_argument("archivo"); s.add_argument("--para", choices=["entrega"], default=""); s.set_defaults(f=cmd_revisar)
     s = sub.add_parser("semana"); s.add_argument("archivo"); s.set_defaults(f=cmd_semana)
     s = sub.add_parser("aprobar"); s.add_argument("archivo"); s.add_argument("id"); s.add_argument("--medio", required=True); s.set_defaults(f=cmd_aprobar)
-    s = sub.add_parser("entregar"); s.add_argument("archivo"); s.add_argument("id"); s.set_defaults(f=cmd_entregar)
+    s = sub.add_parser("entregar"); s.add_argument("archivo"); s.add_argument("id")
+    s.add_argument("--panel", action="store_true", help="imprime el JSON para POST /api/claude/pieza del panel")
+    s.set_defaults(f=cmd_entregar)
     s = sub.add_parser("balance"); s.set_defaults(f=cmd_balance)
     s = sub.add_parser("publicado")
     for k in ("--id", "--fecha", "--pilar"):

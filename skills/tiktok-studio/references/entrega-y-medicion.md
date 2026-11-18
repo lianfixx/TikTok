@@ -12,6 +12,7 @@ Ninguna IA publica en TikTok ni entra a la cuenta de Emi. Hoy el modo es manual 
    - descripción completa, lista para copiar;
    - portada (segundo o archivo) y su texto;
    - ajustes: etiqueta de IA (apagada y por qué), divulgación comercial, música, subtítulos automáticos (no, si ya trae).
+Para el panel de la Matriz de Redes: `tts entregar ARCHIVO ID --panel` imprime el JSON para `POST /api/claude/pieza` con el bloque `app` (portada y ajustes en frases). Con `panel_id` y `panel_archivos` en la ficha, actualiza la pieza existente y le adjunta el video. El panel muestra a Emi la fecha y la hora, los botones para descargar el video y la portada, la descripción con «Copiar», la lista de ajustes, los pasos y los botones «Ya la publiqué» y «La programé en la app». No publica en TikTok y no manda avisos al teléfono: la pieza aparece en «Lo que necesito de ti».
 4. Emi lo sube desde su teléfono o lo programa en TikTok Studio web, que permite programar hasta 30 días antes (oficial, Creator Academy). Confirma en el chat con el enlace del video.
 
 ## Automatizar la subida (revisado el 17/11/2026, TikTok for Developers)

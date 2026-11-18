@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-18 · Ficha manual de TikTok en el panel
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: encargo de Emi del 17/11/2026 (que el panel le diga fecha, hora, descripción y le deje descargar video y portada); la Matriz de Redes desplegó la ficha manual el 18/11/2026.
+- Cambios: `tiktokstudio.py entregar … --panel` imprime el JSON para `POST /api/claude/pieza` con el bloque `app` (portada y ajustes en frases), más `id` y `archivos` si la ficha trae `panel_id` y `panel_archivos`. La pieza del DOF (`eb716e244b02`) se reenvió con su bloque `app`: sigue «lista para aprobar», con el video y sin errores de revisión. Documentado en `references/entrega-y-medicion.md`.
+- Archivos: `skills/tiktok-studio/scripts/{tiktokstudio.py,test_tiktokstudio.py}`, `skills/tiktok-studio/references/entrega-y-medicion.md` y este registro.
+- Verificación: 49 pruebas → aprobado; respuesta del panel → `app` guardado, `revision.errores` vacío; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: que Emi apruebe la pieza y la portada propuesta en el panel; el panel no manda avisos al teléfono.
+
 ## 2026-11-18 · Vox Studio aplicó el puente; regla de voz de IA aclarada
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: aviso de la Matriz de Redes (18/11/2026): Vox Studio aplicó la petición, con la confirmación de Emi, y señaló que el puente prohibía «voces realistas hechas con IA» cuando su voz de ElevenLabs lo es.
