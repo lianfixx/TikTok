@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.DS_Store
+cuenta/privado/*
+!cuenta/privado/.gitkeep
+.env
+*.cookies
+*.mp4
+*.mov

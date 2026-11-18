@@ -1,0 +1,22 @@
+# Mitos de TikTok
+
+Lo que circula entre creadores y lo que hay de verdad. Si alguien (Emi, otra IA o un video) cita una de estas reglas, se responde con esta tabla. Fuentes completas en `docs/investigacion/inv-terceros.md` y `inv-oficial.md`.
+
+| Mito | Qué hay | Veredicto |
+|---|---|---|
+| #fyp, #parati o #foryou ayudan | En 300,617 videos de tendencias, la idea de que esos hashtags o apilar hashtags de moda empujan un video «was found not applicable» (Klug et al., WebSci 2021, de terceros). TikTok recomienda 2 o 3 hashtags relevantes (oficial). | **Falso.** No se usan. |
+| Hay una hora dorada para publicar | TikTok solo dice que la hora de publicación es una señal y remite a «Most active times» de tu propia audiencia en Analytics (oficial). Los estudios de horarios (Buffer, Sprout Social; empresas) se contradicen y son de EE. UU. | **No hay hora universal.** Se usa la de la propia audiencia cuando haya datos. |
+| Hay un «shadowban» secreto a la cuenta | TikTok declara públicamente cuando un video queda fuera del Para ti y lo muestra en Analytics; con mucho contenido no elegible, la cuenta entera puede quedar fuera (oficial). Un castigo secreto a toda la cuenta no está medido por terceros. | **Mal nombrado.** La restricción existe, es por video y se ve en Analytics. |
+| Cada video pasa por un «lote de prueba» de 200 o 500 vistas | Ninguna fuente oficial lo dice. El «200» de Baumann et al. (2026) son videos vistos por el espectador, no vistas de un creador. La moda de vistas en una muestra casi completa de TikTok es de unas 100 (Steel et al., 2026, de terceros): describe el resultado, no el mecanismo. | **Sin fuente.** Que la distribución sea escalonada es plausible; la cifra es inventada. |
+| Hay que publicar 3 veces al día | TikTok: «Post more often», pero «your exact posting cadence is totally up to you» y «consistency matters more than perfection» (oficial). Buffer (11.4 millones de posts, de terceros): publicar más sube la probabilidad de un video atípico con muchas vistas, pero «the median views per post stay pretty flat». | **Falso como regla.** Constancia antes que volumen. |
+| Sin seguidores no hay alcance | «neither follower count nor whether the account has had previous high-performing videos are direct factors» (oficial, 2020). | **Falso.** Los seguidores ayudan solo de forma indirecta. |
+| La cuenta nueva hay que «calentarla» viendo videos antes de publicar | No hay fuente oficial ni de terceros sobre el lado del creador. | **Sin evidencia.** |
+| Borrar videos daña la cuenta | No hay fuente oficial ni de terceros. | **Sin evidencia.** |
+| Editar la descripción después de publicar «reinicia» el video | No hay fuente. | **Sin evidencia.** |
+| Los enlaces o mencionar otras redes castigan | No hay fuente. | **Sin evidencia.** |
+| Los videos de menos de 15 s ganan siempre | TikTok dice lo contrario: terminar un video **largo** es señal fuerte y «long-form content thrives» (oficial). No hay auditoría que respalde los 15 s. | **Falso como regla.** |
+| Volver a verlo (más de 100 % de retención) pesa por sí mismo | El tiempo de visualización sí es señal (oficial y de terceros: WSJ 2021, Boeker y Urman 2022). Que la repetición tenga un peso propio no está publicado. | **El tiempo de visualización, sí; el «más de 100 %», sin fuente.** |
+| Resubir un Reel con la marca de Instagram baja el alcance | El informe DSA 2025 de TikTok lo dice: lo que lleva marca de agua ajena no es elegible para el Para ti (oficial). | **Cierto.** Se sube siempre el máster limpio. |
+| Pasar a cuenta de empresa mata el alcance | No hay fuente. Lo que sí es oficial: la cuenta de empresa pierde la biblioteca de sonidos «Unlimited» y el Creator Rewards Program. | **Sin evidencia** sobre el alcance; hay otras razones para quedarse en personal. |
+| Los sonidos de moda dan alcance | No hay auditoría. Oficial: tocar el sonido es una acción que el sistema predice, y el feed evita dos videos seguidos con el mismo sonido. | **Sin evidencia.** Se usan si suman a la pieza, no para «jalar» alcance. |
+| La etiqueta de IA baja el alcance | TikTok: activarla «won't affect the distribution of your video» (oficial). | **Falso según TikTok.** Igual, esta skill diseña los videos para no necesitarla (ver [formato.md](formato.md#etiqueta-de-ia)). |

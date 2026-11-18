@@ -1,0 +1,152 @@
+{
+  "descripcion": "Fuentes oficiales de TikTok en las que se apoya la skill y la frase exacta de cada una que sostiene una regla. `fuentes revisar` abre cada página y comprueba que la frase siga ahí. Si una frase desaparece, la regla citada en `regla` se vuelve a leer.",
+  "verificado": "2026-11-17",
+  "fuentes": [
+    {
+      "id": "newsroom-2020",
+      "titulo": "How TikTok recommends videos #ForYou (Newsroom, 18/06/2020)",
+      "url": "https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you",
+      "frases": [
+        {"texto": "strong indicator of interest", "regla": "algoritmo.md: terminar un video largo es señal fuerte"},
+        {"texto": "are direct factors", "regla": "algoritmo.md: seguidores y éxitos previos no son factores directos"},
+        {"texto": "by the same creator", "regla": "algoritmo.md: diversidad, no dos seguidos del mismo creador o sonido"},
+        {"texto": "duplicated content", "regla": "algoritmo.md: no se recomienda contenido duplicado"},
+        {"texto": "lower weight", "regla": "algoritmo.md: idioma, país y dispositivo pesan menos"}
+      ]
+    },
+    {
+      "id": "transparencia-recomendacion",
+      "titulo": "Introduction to the TikTok recommendation system (Centro de Transparencia)",
+      "url": "https://www.tiktok.com/transparency/en-us/recommendation-system/",
+      "frases": [
+        {"texto": "The length of the video", "regla": "algoritmo.md: la duración es una señal del video"},
+        {"texto": "The time the video was posted", "regla": "algoritmo.md y mitos.md: la hora es señal, sin hora dorada"},
+        {"texto": "Finish, skip, or favorite a video", "regla": "algoritmo.md: acciones que el sistema predice"},
+        {"texto": "combining prediction scores", "regla": "algoritmo.md: la combinación no se publica"}
+      ]
+    },
+    {
+      "id": "normas-integridad",
+      "titulo": "Community Guidelines: Integrity and Authenticity",
+      "url": "https://www.tiktok.com/community-guidelines/en/integrity-authenticity",
+      "frases": [
+        {"texto": "unoriginal or reused material", "regla": "algoritmo.md: lo no original queda fuera del Para ti"},
+        {"texto": "label AI-generated", "regla": "formato.md: etiqueta de IA"},
+        {"texto": "realistic-looking", "regla": "formato.md: la etiqueta solo aplica a lo realista"},
+        {"texto": "inflating likes or follows", "regla": "algoritmo.md y revisar: cebo de interacción"},
+        {"texto": "suspected paid political advertising", "regla": "algoritmo.md y pilares.md: publicidad política pagada"}
+      ]
+    },
+    {
+      "id": "normas-fyf",
+      "titulo": "Community Guidelines: For You feed Eligibility Standards",
+      "url": "https://www.tiktok.com/community-guidelines/en/fyf-standards",
+      "frases": [
+        {"texto": "suitable for a broad audience", "regla": "algoritmo.md: elegibilidad para el Para ti"}
+      ]
+    },
+    {
+      "id": "normas-cuentas",
+      "titulo": "Community Guidelines: Accounts and Features",
+      "url": "https://www.tiktok.com/community-guidelines/en/accounts-features",
+      "frases": [
+        {"texto": "content disclosure setting", "regla": "formato.md: divulgación comercial"}
+      ]
+    },
+    {
+      "id": "academia-etiqueta-ia",
+      "titulo": "Creator Academy: AI-generated content label",
+      "url": "https://www.tiktok.com/creator-academy/en/article/ai-generated-content-label",
+      "frases": [
+        {"texto": "realistic-looking", "regla": "formato.md: etiqueta obligatoria solo para lo realista"},
+        {"texto": "recognizable voice of a known individual", "regla": "formato.md: TTS genérico no requiere etiqueta"},
+        {"texto": "won't affect the distribution", "regla": "formato.md y mitos.md: la etiqueta no baja el alcance"}
+      ]
+    },
+    {
+      "id": "academia-elementos",
+      "titulo": "Creator Academy: Elements of a TikTok video",
+      "url": "https://www.tiktok.com/creator-academy/en/article/elements-of-tiktok-video",
+      "frases": [
+        {"texto": "2 to 3 relevant hashtags", "regla": "formato.md y revisar: 2 o 3 hashtags"},
+        {"texto": "experiment with different lengths", "regla": "formato.md: no hay duración ideal"},
+        {"texto": "within the first 5 seconds", "regla": "formato.md: gancho a más tardar en 5 s"}
+      ]
+    },
+    {
+      "id": "academia-para-ti",
+      "titulo": "Creator Academy: Video traffic, the For You feed",
+      "url": "https://www.tiktok.com/creator-academy/en/article/video-traffic-the-for-you-feed",
+      "frases": [
+        {"texto": "first three seconds", "regla": "formato.md: gancho en 3 s"},
+        {"texto": "Post more often", "regla": "cuenta-nueva.md: frecuencia"}
+      ]
+    },
+    {
+      "id": "academia-busqueda",
+      "titulo": "Creator Academy: Search",
+      "url": "https://www.tiktok.com/creator-academy/en/article/search",
+      "frases": [
+        {"texto": "video captions, video text, and hashtags", "regla": "formato.md: la Búsqueda usa descripción, texto y hashtags"}
+      ]
+    },
+    {
+      "id": "academia-portadas",
+      "titulo": "Creator Academy: Video covers and thumbnails",
+      "url": "https://www.tiktok.com/creator-academy/en/article/video-covers-thumbnails",
+      "frases": [
+        {"texto": "funky fonts", "regla": "formato.md: portada sin tipografías extravagantes en nichos legales"},
+        {"texto": "40 to 50 pixel", "regla": "formato.md: tamaño de texto"}
+      ]
+    },
+    {
+      "id": "academia-cuentas",
+      "titulo": "Creator Academy: TikTok Business vs Personal",
+      "url": "https://www.tiktok.com/creator-academy/en/article/TikTok-Business-vs-Personal",
+      "frases": [
+        {"texto": "No matter which account you pick", "regla": "cuenta-nueva.md: Analytics en los dos tipos de cuenta"}
+      ]
+    },
+    {
+      "id": "academia-recompensas",
+      "titulo": "Creator Academy: Creator Rewards Program",
+      "url": "https://www.tiktok.com/creator-academy/en/article/creator-rewards-program",
+      "frases": [
+        {"texto": "Mexico", "regla": "formato.md: el programa existe en México"},
+        {"texto": "Only Personal Accounts are eligible", "regla": "cuenta-nueva.md: cuenta personal"}
+      ]
+    },
+    {
+      "id": "academia-politica",
+      "titulo": "Creator Academy: Political ads",
+      "url": "https://www.tiktok.com/creator-academy/en/article/Political-ads",
+      "frases": [
+        {"texto": "share political content organically", "regla": "algoritmo.md: política orgánica permitida"}
+      ]
+    },
+    {
+      "id": "academia-analytics",
+      "titulo": "Creator Academy: Analytics, video performance",
+      "url": "https://www.tiktok.com/creator-academy/en/article/analytics-tool-video-performance",
+      "frases": [
+        {"texto": "Most active times", "regla": "cuenta-nueva.md: hora según la propia audiencia"}
+      ]
+    },
+    {
+      "id": "academia-web",
+      "titulo": "Creator Academy: Web creation (TikTok Studio)",
+      "url": "https://www.tiktok.com/creator-academy/en/article/tool-web-creation-intro",
+      "frases": [
+        {"texto": "up to 30 days in advance", "regla": "entrega-y-medicion.md: programar hasta 30 días"}
+      ]
+    },
+    {
+      "id": "api-publicacion",
+      "titulo": "TikTok for Developers: Content Posting API, get started",
+      "url": "https://developers.tiktok.com/doc/content-posting-api-get-started",
+      "frases": [
+        {"texto": "unaudited clients will be restricted to private viewing mode", "regla": "entrega-y-medicion.md: la API exige auditoría"}
+      ]
+    }
+  ]
+}

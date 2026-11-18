@@ -1,0 +1,82 @@
+{
+  "contrato": "redes-estado/0.1.1",
+  "skill": "tiktok-studio",
+  "red": "tiktok",
+  "version_skill": "1.0.0",
+  "actualizado": "2026-11-17",
+  "cuentas": [
+    {
+      "espacio": "personal",
+      "usuario": "",
+      "activa": false,
+      "notas": "sin cuenta: tiktok.com/@emilianomilla_ respondió «Couldn't find this account» el 17/11/2026 a las 19:40 (hora de México), visto desde box sin sesión"
+    }
+  ],
+  "cadencia": {
+    "max_por_dia": 1,
+    "separacion_min_h": 48,
+    "max_por_semana": 3,
+    "dias_preferidos": [],
+    "fuente": "skills/tiktok-studio/references/cuenta-nueva.md#cadencia-criterio-ajustable",
+    "certeza": "criterio"
+  },
+  "formatos": [
+    {
+      "id": "video",
+      "que_premia": "Que lo terminen y lo vean más tiempo; likes, compartidos, comentarios, guardados y seguir al autor (sin pesos publicados).",
+      "fuente": "skills/tiktok-studio/references/algoritmo.md",
+      "certeza": "oficial"
+    },
+    {
+      "id": "fotos",
+      "que_premia": "Las mismas interacciones; TikTok mide retención en carruseles de 2 fotos o más. Sin dato oficial de que rinda más o menos que el video.",
+      "fuente": "skills/tiktok-studio/references/formato.md",
+      "certeza": "oficial"
+    }
+  ],
+  "minutos_emi_por_pieza": {
+    "video-vox": 10,
+    "video-editor": 20,
+    "video-emi": 30,
+    "fotos": 15
+  },
+  "publicados": [],
+  "lecciones": [
+    {
+      "fecha": "2026-11-17",
+      "texto": "El video del DOF del espacio Castorena se puede subir a la cuenta personal porque no muestra la marca ni el nombre del despacho (revisado cuadro por cuadro); cualquier otro video de otro espacio se revisa igual antes de subirlo.",
+      "evidencia": "cuenta/aprendizajes.md",
+      "alcance": "red"
+    }
+  ],
+  "ideas_para_otras": [],
+  "pendientes_de_emi": [
+    {
+      "que": "Abrir la cuenta personal de TikTok y decir el usuario",
+      "desde": "2026-11-13",
+      "bloquea": "todas las publicaciones de TikTok"
+    },
+    {
+      "que": "Elegir y reescribir la descripción del video del DOF (opción A o B)",
+      "desde": "2026-11-17",
+      "bloquea": "primer video"
+    },
+    {
+      "que": "Elegir biografía y nombre visible",
+      "desde": "2026-11-17",
+      "bloquea": "perfil"
+    },
+    {
+      "que": "Confirmar pilares después del lanzamiento (propuesta 50/25/25) y si grabará gym o vlogs",
+      "desde": "2026-11-17",
+      "bloquea": "calendario desde diciembre"
+    }
+  ],
+  "fuentes": {
+    "publicados": "cuenta/publicados.jsonl",
+    "lecciones": "cuenta/aprendizajes.md",
+    "ideas_vox": "puente/para-vox.md",
+    "perfil": "cuenta/perfil.json",
+    "fuentes_oficiales": "skills/tiktok-studio/data/fuentes.json"
+  }
+}
