@@ -1,6 +1,6 @@
 # Instrucciones para cualquier IA en este repositorio
 
-Este repositorio contiene **tiktok-studio**, la skill de la cuenta personal de Emi en TikTok (por abrir; usuario propuesto `@emilianomilla_`).
+Este repositorio contiene **tiktok-studio**, la skill de la cuenta personal de Emi en TikTok (`@emiliano_milla_`).
 
 1. Con terminal, empieza con `python3 ia/verificar.py inicio`.
 2. Lee `ia/REGLAS.md` y después, íntegra, la skill: `skills/tiktok-studio/SKILL.md`. Abre solo las referencias que pida la tarea.

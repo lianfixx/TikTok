@@ -17,7 +17,7 @@ Ninguna IA publica en TikTok ni entra a la cuenta de Emi. TikTok tiene una API o
 
 ```bash
 tts publicado --id tt-2026-11-20-dof --fecha 2026-11-20T19:30:00-06:00 --pilar ia-derecho \
-  --formato video --url https://www.tiktok.com/@emilianomilla_/video/... --archivo cuenta/privado/semana.json
+  --formato video --url https://www.tiktok.com/@emiliano_milla_/video/... --archivo cuenta/privado/semana.json
 ```
 
 Guarda una línea en `cuenta/publicados.jsonl` con la huella de la descripción (para que la Matriz de Redes detecte textos repetidos entre redes) y regenera `red/estado.json`. El texto completo solo se guarda una vez publicado: lo publicado ya es público.

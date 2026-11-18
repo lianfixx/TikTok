@@ -1,9 +1,9 @@
 ---
 name: tiktok-studio
-description: "Decidir, preparar, revisar, entregar para publicar y medir los videos de Emi en TikTok (cuenta personal, por abrir como @emilianomilla_): qué video hacer, para quién, gancho de los primeros segundos, texto en pantalla, duración, descripción, hashtags, portada, calendario y métricas, con las fuentes oficiales de TikTok y su grado de certeza. Usar al pedir un TikTok, una idea o calendario para TikTok, la descripción o portada de un video, al revisar si un video es elegible para el feed Para ti, al preguntar qué premia o castiga TikTok, al pasar métricas de TikTok Studio o al revisar si cambiaron sus reglas. No usar para producir el video (guion completo, voz, imágenes, edición o render: eso es vox-studio o editor-studio), ni para X, Instagram o LinkedIn."
+description: "Decidir, preparar, revisar, entregar para publicar y medir los videos de Emi en TikTok (cuenta personal @emiliano_milla_): qué video hacer, para quién, gancho de los primeros segundos, texto en pantalla, duración, descripción, hashtags, portada, calendario y métricas, con las fuentes oficiales de TikTok y su grado de certeza. Usar al pedir un TikTok, una idea o calendario para TikTok, la descripción o portada de un video, al revisar si un video es elegible para el feed Para ti, al preguntar qué premia o castiga TikTok, al pasar métricas de TikTok Studio o al revisar si cambiaron sus reglas. No usar para producir el video (guion completo, voz, imágenes, edición o render: eso es vox-studio o editor-studio), ni para X, Instagram o LinkedIn."
 license: Uso personal de Emiliano García Milla. Sin licencia de reutilización para terceros.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   release_date: "2026-11-17"
   language: "es-MX"
   fuentes_verificadas: "2026-11-17"
@@ -28,7 +28,7 @@ Funciona en cualquier IA: [portabilidad.md](references/portabilidad.md). Con ter
 
 ## Estado de la cuenta
 
-Al 17/11/2026 la cuenta **no existe**: `tiktok.com/@emilianomilla_` responde «Couldn't find this account». Emi la va a abrir como cuenta personal. Hasta entonces se prepara todo y nada se programa. Ninguna IA ve la cuenta por dentro: las métricas las trae Emi con capturas de TikTok Studio. Estado y decisiones en `cuenta/perfil.json`.
+La cuenta es `@emiliano_milla_`, de Emi desde el 08/02/2020, y él decidió reusarla el 17/11/2026. Ese día tenía 1,007 seguidores, unos 55,000 likes, 1 video y ninguna biografía (vista pública, sin sesión). Ninguna IA ve la cuenta por dentro: las métricas las trae Emi con capturas de TikTok Studio. Estado y decisiones en `cuenta/perfil.json`.
 
 ## Qué leer según el encargo
 

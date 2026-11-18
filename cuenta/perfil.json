@@ -1,23 +1,59 @@
 {
-  "usuario": "",
-  "usuario_propuesto": "emilianomilla_",
-  "activa": false,
-  "tipo_cuenta": "personal (recomendado; pendiente de que Emi la abra)",
+  "usuario": "emiliano_milla_",
+  "activa": true,
+  "tipo_cuenta": "personal (Emi, 17/11/2026); confirmar en la app que no esté como empresa",
   "espacio_vox": "personal",
-  "estado": "sin cuenta: tiktok.com/@emilianomilla_ respondió «Couldn't find this account» el 17/11/2026 a las 19:40 (hora de México), visto desde box sin sesión",
-  "objetivos": ["marca personal", "influencia política", "comunidad de IA + Derecho"],
+  "estado": "cuenta de Emi creada el 08/02/2020 (reusada por decisión de Emi el 17/11/2026). Vista pública el 17/11/2026 a las 21:50 (hora de México): 1,007 seguidores, unos 55,000 likes, 1 video, sin biografía",
+  "objetivos": [
+    "marca personal",
+    "influencia política",
+    "comunidad de IA + Derecho"
+  ],
   "objetivo_empresas": "primero prestigio, después empleo (Emi, 13/11/2026)",
-  "balance": {"ia-derecho": 0.5, "lifestyle": 0.25, "politica": 0.25},
-  "balance_nota": "propuesta de la skill para después del lanzamiento; el lanzamiento (5 videos) es todo ia-derecho por decisión de Emi del 13/11/2026. Pendiente de que Emi confirme",
+  "balance": {
+    "ia-derecho": 0.3334,
+    "lifestyle": 0.3333,
+    "politica": 0.3333
+  },
+  "balance_nota": "Tercios iguales después del lanzamiento, «adaptado a lo que te diga y el material que tengamos» (Emi, 17/11/2026). El lanzamiento (5 videos) es todo ia-derecho (13/11/2026)",
   "tolerancia_balance": 0.15,
   "minutos_semana_todas_las_redes": 120,
   "metricas": "capturas de TikTok Studio el domingo (Emi, 13/11/2026)",
   "modo": "Emi publica o programa en TikTok Studio; ninguna IA entra a la cuenta. API de publicación no conectada (exige app auditada por TikTok)",
   "pendientes_de_emi": [
-    {"que": "Abrir la cuenta personal de TikTok y decir el usuario", "desde": "2026-11-13", "bloquea": "todas las publicaciones de TikTok"},
-    {"que": "Elegir y reescribir la descripción del video del DOF (opción A o B)", "desde": "2026-11-17", "bloquea": "primer video"},
-    {"que": "Elegir biografía y nombre visible", "desde": "2026-11-17", "bloquea": "perfil"},
-    {"que": "Confirmar pilares después del lanzamiento (propuesta 50/25/25) y si grabará gym o vlogs", "desde": "2026-11-17", "bloquea": "calendario desde diciembre"}
+    {
+      "que": "Aprobar la descripción B ajustada del video del DOF (o reescribirla)",
+      "desde": "2026-11-17",
+      "bloquea": "primer video"
+    },
+    {
+      "que": "Poner nombre visible y la bio «Disciplina > motivación. Derecho, gym y opiniones que incomodan.» en la app",
+      "desde": "2026-11-17",
+      "bloquea": "perfil"
+    },
+    {
+      "que": "Revisar el video viejo de la cuenta (2020): dejarlo o pasarlo a privado",
+      "desde": "2026-11-17",
+      "bloquea": "nada"
+    },
+    {
+      "que": "Grabar los 4 videos del lanzamiento y uno de gym o vlog por semana",
+      "desde": "2026-11-17",
+      "bloquea": "calendario"
+    }
   ],
-  "actualizado": "2026-11-17"
+  "actualizado": "2026-11-17",
+  "observado": {
+    "fecha": "2026-11-17",
+    "seguidores": 1007,
+    "likes": 54982,
+    "videos": 1,
+    "bio": "",
+    "nombre_visible": "emiliano_milla_",
+    "fuente": "página pública vista desde box y desde la nube, sin sesión"
+  },
+  "bio_elegida": "Disciplina > motivación. Derecho, gym y opiniones que incomodan.",
+  "bio_nota": "Emi pidió frases cortas, estilo viral, sin decir «abogado» (17/11/2026). 64 caracteres; TikTok permite 80 según terceros (no verificado en fuente oficial)",
+  "videos_propios": "gym o vlogs grabados por Emi, cada semana (Emi, 17/11/2026)",
+  "revision_fuentes": "mensual, primer domingo (Emi, 17/11/2026)"
 }

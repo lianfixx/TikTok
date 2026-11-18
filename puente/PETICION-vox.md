@@ -15,7 +15,7 @@ para el espacio `personal`. Vox Studio no publica en TikTok; la descripción, la
 decide `tiktok-studio` con el visto bueno de Emi.
 ```
 
-2. Cuando Emi abra su cuenta, escribir su usuario en `espacios/personal/perfil.json` → `cuentas.tiktok` y, si Emi lo quiere en pantalla, en `handle` (según la regla de Vox: el `handle` es el @ de la red donde se publica el video).
+2. Escribir su usuario, `@emiliano_milla_` (confirmado por Emi el 17/11/2026), en `espacios/personal/perfil.json` → `cuentas.tiktok` y, si Emi lo quiere en pantalla, en `handle` (según la regla de Vox: el `handle` es el @ de la red donde se publica el video).
 
 ## Qué recibe Vox Studio a cambio
 

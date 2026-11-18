@@ -27,4 +27,4 @@ python3 skills/tiktok-studio/scripts/tiktokstudio.py fuentes revisar
 python3 ia/verificar.py ci
 ```
 
-Ninguna IA entra a la cuenta de TikTok de Emi. Emi aprueba y publica.
+La cuenta es `@emiliano_milla_`. Ninguna IA entra a ella. Emi aprueba y publica.

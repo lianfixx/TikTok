@@ -2,15 +2,17 @@
 
 Plan para abrir la cuenta y las primeras semanas. Lo decidido por Emi lleva fecha; lo demás es propuesta de la skill con su certeza.
 
-## Fase 0: abrir la cuenta (le toca a Emi)
+## Fase 0: preparar la cuenta (le toca a Emi)
 
-1. Crear la cuenta desde su teléfono. Usuario: `@emilianomilla_`, igual que en X (propuesta; pendiente de que Emi lo confirme). Comprobar después, sin sesión: `tts cuenta comprobar emilianomilla_` (abre la página pública desde box o desde cualquier navegador).
-2. Tipo: **personal** (oficial: las dos tienen Analytics; la de empresa pierde la biblioteca de sonidos «Unlimited» y el Creator Rewards Program). Sin teléfono ni correo de MILLA en el perfil: el programa de recompensas excluye perfiles con «personal or business contact information» (oficial).
-3. Nombre visible y biografía: lo que Emi elija. El nombre y la biografía son lo que más lleva gente al perfil («your nickname and your bio are the most important for driving profile traffic», oficial).
-4. Foto: la profesional que ya tiene.
-5. Avisar en el chat. La skill anota el usuario en `cuenta/perfil.json`, regenera `red/estado.json` y deja la petición a Vox Studio para que escriba el @ en su perfil `personal`.
+Emi decidió el 17/11/2026 reusar su cuenta `@emiliano_milla_` (creada el 08/02/2020; ese día tenía 1,007 seguidores, unos 55,000 likes y 1 video). No se abre una nueva.
 
-Ninguna IA crea la cuenta, inicia sesión ni la configura: lo hace Emi.
+1. Tipo: **personal** (decidido el 17/11/2026; oficial: las dos tienen Analytics y la de empresa pierde la biblioteca de sonidos «Unlimited» y el Creator Rewards Program). Sin teléfono ni correo de MILLA en el perfil: el programa de recompensas excluye perfiles con «personal or business contact information» (oficial).
+2. Biografía: «Disciplina > motivación. Derecho, gym y opiniones que incomodan.» (elegida el 17/11/2026). El nombre y la biografía son lo que más lleva gente al perfil («your nickname and your bio are the most important for driving profile traffic», oficial).
+3. Nombre visible y foto: los elige Emi (tiene foto profesional).
+4. El video viejo: Emi decide si se queda o pasa a privado. Seguidores y éxitos anteriores no son factores directos del Para ti (oficial), así que no ayudan ni estorban por sí mismos; lo que importa es que el perfil se vea coherente.
+5. Comprobar sin sesión: `tts cuenta comprobar emiliano_milla_`.
+
+Ninguna IA inicia sesión ni configura la cuenta: lo hace Emi.
 
 ## Fase 1: lanzamiento (decidido por Emi el 13/11/2026)
 
@@ -24,7 +26,7 @@ Cinco videos del espacio personal, pilar IA + Derecho, tesis «la IA reemplaza t
 | 4 | Video 3 · Boletines (datos de ejemplo) | Editor Studio | Rotulado «datos de ejemplo». |
 | 5 | Video 4 · Vox | Editor Studio | Con la voz de Emi. Si se muestra un fragmento de Vox, que sea ilustrado. |
 
-Calendario propuesto el 17/11/2026 (sujeto a que la cuenta exista y a que Editor Studio entregue): primer video el día en que se abra la cuenta, a las 19:30; sábado 21 a las 12:00; martes 24, jueves 26 y sábado 28 o lunes 30 a las 19:30. La Matriz de Redes acomoda las fechas en `lianfixx/REDES` (`calendario/`).
+Calendario acordado con la Matriz de Redes el 17/11/2026 (los grabados dependen de que Emi grabe y Editor Studio entregue): DOF animado jueves 19 a las 19:30; Matriz sábado 21, DOF grabado martes 24, Boletines jueves 26 y Vox sábado 28, todos a las 19:30. La Matriz de Redes acomoda las fechas en `lianfixx/REDES` (`calendario/`).
 
 ## Cadencia (criterio, ajustable)
 
@@ -34,10 +36,10 @@ Por qué: TikTok dice «Post more often» y, a la vez, que la cadencia es decisi
 
 Se revisa al cumplir 4 semanas con métricas: si la retención y las vistas aguantan y Emi tiene material, se sube a 4 o 5.
 
-## Fase 2: después del lanzamiento (propuesta, pendiente de Emi)
+## Fase 2: después del lanzamiento (decidido por Emi el 17/11/2026)
 
-- **Pilares**: 50 % IA + Derecho, 25 % gym y estilo de vida y 25 % opinión política durante el primer mes; después, según las métricas. En X decidió tercios iguales; en TikTok el lanzamiento ya carga IA + Derecho.
-- **Videos que graba él** (gym, vlogs): pendiente de que diga si los hará.
+- **Pilares**: tercios iguales, adaptados al material que haya (Emi, 17/11/2026).
+- **Videos que graba él** (gym, vlogs): al menos uno por semana (Emi, 17/11/2026). La skill se lo pide en el paquete semanal con idea y gancho.
 - **Formatos que vale la pena probar** (oficial, Creator Academy): responder un comentario con un video («Respond to comments with a video») y hacer Stitch a una buena pregunta. Los Stitch y Duet no cuentan para el programa de recompensas (oficial).
 
 ## Hora de publicación

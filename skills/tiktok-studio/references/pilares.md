@@ -5,14 +5,15 @@
 | Pilar | Qué cabe | Estado en TikTok |
 |---|---|---|
 | `ia-derecho` | Lo que Emi construyó con IA para el trabajo jurídico, el DOF y leyes nuevas explicadas, qué sirve y qué no. | Lanzamiento (decidido 13/11/2026). |
-| `lifestyle` | Gym, rutina, maestría, vida de abogado joven. Con material real de Emi. | Propuesta: 25 % desde la fase 2. Pendiente de Emi. |
-| `politica` | Análisis jurídico con postura, crítico independiente. | Propuesta: 25 % desde la fase 2. Pendiente de Emi. |
+| `lifestyle` | Gym, rutina, maestría, vida de abogado joven. Con material real de Emi, que graba al menos un video por semana (17/11/2026). | Un tercio desde la fase 2 (17/11/2026). |
+| `politica` | Análisis jurídico con postura, crítico independiente. | Un tercio desde la fase 2 (17/11/2026). |
 
-El reparto vigente está en `cuenta/perfil.json` (`balance`) y lo calcula `tts balance`. Cambiarlo requiere a Emi.
+El reparto vigente está en `cuenta/perfil.json` (`balance`) y lo calcula `tts balance`: tercios iguales, «adaptado a lo que te diga y el material que tengamos» (Emi, 17/11/2026), así que una semana puede desviarse si falta material; la tendencia de un mes no. Cambiarlo requiere a Emi.
 
 ## Cómo se presenta (decisiones de Emi, 13/11/2026)
 
 - Abogado con maestría en Alta Dirección. Tono de marca personal, no de currículum.
+- Biografía de TikTok (17/11/2026): «Disciplina > motivación. Derecho, gym y opiniones que incomodan.» Pidió frases cortas, estilo de perfiles virales, sin decir «abogado».
 - Empezó «full IA» el 07/11/2026. Frase: «la IA reemplaza tareas, no criterio».
 - Objetivo: primero prestigio, después empleo. Orden general: marca personal > influencia política > comunidad IA + Derecho.
 - Postura de riesgo, literal: «jamás jamás seas moral, tú apuesta todo y arriesga todo… tampoco te pido que hagas cosas ilegales». En la práctica: ganchos y tono agresivos permitidos; siguen los límites de abajo y las reglas de TikTok.

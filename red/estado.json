@@ -2,14 +2,14 @@
   "contrato": "redes-estado/0.1.1",
   "skill": "tiktok-studio",
   "red": "tiktok",
-  "version_skill": "1.0.0",
+  "version_skill": "1.1.0",
   "actualizado": "2026-11-17",
   "cuentas": [
     {
       "espacio": "personal",
-      "usuario": "",
-      "activa": false,
-      "notas": "sin cuenta: tiktok.com/@emilianomilla_ respondió «Couldn't find this account» el 17/11/2026 a las 19:40 (hora de México), visto desde box sin sesión"
+      "usuario": "@emiliano_milla_",
+      "activa": true,
+      "notas": "cuenta de Emi creada el 08/02/2020 (reusada por decisión de Emi el 17/11/2026). Vista pública el 17/11/2026 a las 21:50 (hora de México): 1,007 seguidores, unos 55,000 likes, 1 video, sin biografía"
     }
   ],
   "cadencia": {
@@ -52,24 +52,24 @@
   "ideas_para_otras": [],
   "pendientes_de_emi": [
     {
-      "que": "Abrir la cuenta personal de TikTok y decir el usuario",
-      "desde": "2026-11-13",
-      "bloquea": "todas las publicaciones de TikTok"
-    },
-    {
-      "que": "Elegir y reescribir la descripción del video del DOF (opción A o B)",
+      "que": "Aprobar la descripción B ajustada del video del DOF (o reescribirla)",
       "desde": "2026-11-17",
       "bloquea": "primer video"
     },
     {
-      "que": "Elegir biografía y nombre visible",
+      "que": "Poner nombre visible y la bio «Disciplina > motivación. Derecho, gym y opiniones que incomodan.» en la app",
       "desde": "2026-11-17",
       "bloquea": "perfil"
     },
     {
-      "que": "Confirmar pilares después del lanzamiento (propuesta 50/25/25) y si grabará gym o vlogs",
+      "que": "Revisar el video viejo de la cuenta (2020): dejarlo o pasarlo a privado",
       "desde": "2026-11-17",
-      "bloquea": "calendario desde diciembre"
+      "bloquea": "nada"
+    },
+    {
+      "que": "Grabar los 4 videos del lanzamiento y uno de gym o vlog por semana",
+      "desde": "2026-11-17",
+      "bloquea": "calendario"
     }
   ],
   "fuentes": {
