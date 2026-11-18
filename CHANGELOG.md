@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-18 · Pieza de TikTok del DOF 2 (perdón de multas del SAT)
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 18/11/2026: «Hay uno nuevo acerca del SAT, revisa con su sesión por favor».
+- Cambios: (1) La sesión «Videos DOF y jurisprudencias» entregó la ficha, el guion y las fuentes. (2) Video revisado cuadro por cuadro (`castorena-perdon-sat-v2.mp4`, 63.7 s, 1080×1920, sin C2PA): sin nombre ni logo del despacho, aunque con la paleta y la tipografía de ese espacio, igual que el video del DOF del 19/11; objetos generados con IA, sin personas ni escenas; voz TTS genérica. Por criterio, sin etiqueta de IA. (3) Citas verificadas en fuente oficial: Ley de Ingresos 2027, transitorio Vigésimo Primero, y entrada en vigor el 1 de enero de 2027 (DOF 13/11/2026); CPF art. 424 Bis, frac. I, segundo párrafo, sobre financiar la piratería a sabiendas (DOF 13/11/2026, vespertina, en vigor al día siguiente); jurisprudencia PR.A.C.CS. J/14 C (12a.), registro 2032893, leída en el Semanario Judicial. (4) Video y portada (cuadro de 0.3 s) subidos al panel y pieza `beeb55f32c9c` creada como «lista para aprobar» para el martes 24/11 a las 19:30, 48 horas después de The Economist.
+- Archivos: este registro (la ficha está en `cuenta/privado/` y no se sube).
+- Verificación: `tts revisar` → sin errores; panel → archivos «listo» (12 de 12 partes del video) y `revision.errores` vacío; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: decisiones de Emi sobre el sello final que queda un poco bajo la descripción y sobre su regla de mandar primero al WhatsApp de la firma; aprobación en el panel.
+
 ## 2026-11-18 · Fuente oficial de la Queja 212/2025 verificada
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: pendiente de la entrada anterior. La sesión de videos pasó el registro por medio de la Matriz de Redes.
