@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-18 · Dos piezas de TikTok sobre The Economist 2027 en el panel
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: decisión de Emi del 18/11/2026 (chat de la Matriz de Redes): parte 1 el sábado 21 y parte 2 el domingo 22, ambas a las 19:30; la voz se queda como está («Déjalos así»).
+- Cambios: (1) Revisados los dos MP4 de Vox Studio (61.9 s y 41.5 s, 1080×1920) y sus portadas, cuadro por cuadro. Son ilustración y collage, sin personas ni escenas realistas. La voz es TTS genérica («Emilio»): por criterio no lleva etiqueta de IA en TikTok. Sin metadatos C2PA. (2) Piezas creadas en el panel como «lista para aprobar», con video, portada y ficha `app`: `d217f52c94a0` (parte 1) y `b0b105d5c0d5` (parte 2). Las descripciones usan la postura de Emi tal cual. (3) Aviso en la nota de la parte 2: el video cita la «Queja 212/2025» de un tribunal colegiado. Es un precedente público reportado por prensa jurídica, pero no se encontró su registro en el Semanario Judicial; se le pidió a Vox Studio la fuente oficial. (4) El panel rechazó con 403 una petición hecha con `urllib` de Python y aceptó la misma con `curl`; para el panel se usa `curl`.
+- Archivos: este registro (las fichas están en `cuenta/privado/` y no se suben).
+- Verificación: `tts semana` → sin errores, con el aviso de la excepción de 24 h; panel → `revision.errores` vacío en las dos piezas; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: que Emi apruebe las dos piezas en el panel y las publique el 21 y el 22 a las 19:30; fuente oficial de la Queja 212/2025.
+
 ## 2026-11-18 · Excepciones de cadencia decididas por Emi
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 18/11/2026, en el chat de la Matriz de Redes (informado por esa sesión): los dos videos de The Economist 2027 salen el sábado 21 y el domingo 22, con 24 horas entre los dos.
