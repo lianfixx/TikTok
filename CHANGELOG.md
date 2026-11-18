@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-18 · DOF 2: decisiones de Emi
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 18/11/2026, en el chat de esta sesión: «1.- Está bien así 2.- Si. ya se mandó».
+- Cambios: el sello final del video del SAT se queda como está (no hay v3) y Emi confirma que el video ya se mandó primero al WhatsApp de la firma, como pide su regla del 11/11/2026. Se anotó en la nota de la pieza `beeb55f32c9c`, que sigue en «lista para aprobar» para el martes 24/11 a las 19:30.
+- Archivos: este registro.
+- Verificación: panel → pieza actualizada sin errores; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: que Emi apruebe la pieza en el panel y la publique o la programe.
+
 ## 2026-11-18 · Pieza de TikTok del DOF 2 (perdón de multas del SAT)
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 18/11/2026: «Hay uno nuevo acerca del SAT, revisa con su sesión por favor».
