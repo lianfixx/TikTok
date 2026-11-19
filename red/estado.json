@@ -3,7 +3,7 @@
   "skill": "tiktok-studio",
   "red": "tiktok",
   "version_skill": "1.2.0",
-  "actualizado": "2026-11-18",
+  "actualizado": "2026-11-19",
   "cuentas": [
     {
       "espacio": "personal",
@@ -40,7 +40,18 @@
     "video-emi": 30,
     "fotos": 15
   },
-  "publicados": [],
+  "publicados": [
+    {
+      "id": "tt-sat-perdon",
+      "fecha": "2026-11-19T16:35:12-06:00",
+      "espacio": "personal",
+      "pilar": "ia-derecho",
+      "formato": "video",
+      "url": "https://www.tiktok.com/@emiliano_milla_/video/7710014785680624903",
+      "idea_matriz": "dof-2-perdon-sat",
+      "huella_texto": "923a8730b95b"
+    }
+  ],
   "lecciones": [
     {
       "fecha": "2026-11-17",

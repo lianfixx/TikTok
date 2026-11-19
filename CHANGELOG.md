@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-19 · Publicado en TikTok el video del SAT
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 19/11/2026, mandó el enlace del video que publicó ese día.
+- Cambios: anotado en `cuenta/publicados.jsonl` con `tts publicado`: <https://www.tiktok.com/@emiliano_milla_/video/7710014785680624903>, con la descripción aprobada. Salió antes de la fecha prevista (martes 24/11). Vista pública al anotarlo: 22 reproducciones y 2 me gusta. Es el primer video que se mide (Emi, 19/11/2026: «de aquí al otro que hagamos»).
+- Archivos: `cuenta/publicados.jsonl`, `red/estado.json` y este registro.
+- Verificación: página pública del video leída sin sesión; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: capturas de TikTok Studio a los 7 días (26/11/2026); marcar la pieza `beeb55f32c9c` como publicada en el panel.
+
 ## 2026-11-19 · Video de 2020 retirado y medición desde el próximo video
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 19/11/2026: «solo de aquí al otro que hagamos» y «ya quité el otro video».
