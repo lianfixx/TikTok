@@ -3,13 +3,13 @@
   "skill": "tiktok-studio",
   "red": "tiktok",
   "version_skill": "1.2.0",
-  "actualizado": "2026-11-17",
+  "actualizado": "2026-11-18",
   "cuentas": [
     {
       "espacio": "personal",
       "usuario": "@emiliano_milla_",
       "activa": true,
-      "notas": "cuenta de Emi creada el 08/02/2020 (reusada por decisión de Emi el 17/11/2026). Vista pública el 17/11/2026 a las 21:50 (hora de México): 1,007 seguidores, unos 55,000 likes, 1 video, sin biografía"
+      "notas": "cuenta de Emi creada el 08/02/2020 y reusada desde el 17/11/2026; el 19/11/2026 ya tiene 2 videos públicos (uno nuevo de la campaña)"
     }
   ],
   "cadencia": {
@@ -61,11 +61,6 @@
       "que": "Aprobar en el panel la pieza de TikTok del DOF y subirla desde la app el jue 19/11 a las 19:30",
       "desde": "2026-11-17",
       "bloquea": "primer video"
-    },
-    {
-      "que": "Poner nombre visible y la bio «Disciplina > motivación. Derecho, gym y opiniones que incomodan.» en la app",
-      "desde": "2026-11-17",
-      "bloquea": "perfil"
     },
     {
       "que": "Revisar el video viejo de la cuenta (2020): dejarlo o pasarlo a privado",

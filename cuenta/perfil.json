@@ -3,7 +3,7 @@
   "activa": true,
   "tipo_cuenta": "personal (Emi, 17/11/2026); confirmar en la app que no esté como empresa",
   "espacio_vox": "personal",
-  "estado": "cuenta de Emi creada el 08/02/2020 (reusada por decisión de Emi el 17/11/2026). Vista pública el 17/11/2026 a las 21:50 (hora de México): 1,007 seguidores, unos 55,000 likes, 1 video, sin biografía",
+  "estado": "cuenta de Emi creada el 08/02/2020 y reusada desde el 17/11/2026; el 19/11/2026 ya tiene 2 videos públicos (uno nuevo de la campaña)",
   "objetivos": [
     "marca personal",
     "influencia política",
@@ -27,11 +27,6 @@
       "bloquea": "primer video"
     },
     {
-      "que": "Poner nombre visible y la bio «Disciplina > motivación. Derecho, gym y opiniones que incomodan.» en la app",
-      "desde": "2026-11-17",
-      "bloquea": "perfil"
-    },
-    {
       "que": "Revisar el video viejo de la cuenta (2020): dejarlo o pasarlo a privado",
       "desde": "2026-11-17",
       "bloquea": "nada"
@@ -42,18 +37,17 @@
       "bloquea": "calendario"
     }
   ],
-  "actualizado": "2026-11-17",
+  "actualizado": "2026-11-19",
   "observado": {
-    "fecha": "2026-11-17",
+    "fecha": "2026-11-19",
     "seguidores": 1007,
-    "likes": 54982,
-    "videos": 1,
-    "bio": "",
-    "nombre_visible": "emiliano_milla_",
-    "fuente": "página pública vista desde box y desde la nube, sin sesión"
+    "likes": "55K",
+    "videos": 2,
+    "bio": "Construyo, entreno y opino.",
+    "fuente": "página pública, sin sesión"
   },
-  "bio_elegida": "Disciplina > motivación. Derecho, gym y opiniones que incomodan.",
-  "bio_nota": "Emi pidió frases cortas, estilo viral, sin decir «abogado» (17/11/2026). 64 caracteres; TikTok permite 80 según terceros (no verificado en fuente oficial)",
+  "bio_elegida": "Construyo, entreno y opino.",
+  "bio_nota": "La que Emi puso en la app (vista pública el 19/11/2026); sustituye a la propuesta del 17/11",
   "videos_propios": "gym o vlogs grabados por Emi, cada semana (Emi, 17/11/2026)",
   "revision_fuentes": "mensual, primer domingo; sella y registra sola si nada cambió (Emi, 17/11/2026)"
 }

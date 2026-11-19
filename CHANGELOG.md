@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-19 · Perfil de TikTok al día
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 19/11/2026: «ya salió el video».
+- Cambios: la página pública de @emiliano_milla_ muestra 2 videos (antes 1) y la biografía «Construyo, entreno y opino.», que Emi puso en lugar de la propuesta del 17/11. Se actualizaron `cuenta/perfil.json`, `references/pilares.md` y el estado para la Matriz de Redes.
+- Archivos: `cuenta/perfil.json`, `skills/tiktok-studio/references/pilares.md`, `red/estado.json` y este registro.
+- Verificación: página pública leída sin sesión; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: que Emi mande el enlace del video publicado para anotarlo con `tts publicado` y medirlo a los 7 días.
+
 ## 2026-11-18 · DOF 2: decisiones de Emi
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 18/11/2026, en el chat de esta sesión: «1.- Está bien así 2.- Si. ya se mandó».

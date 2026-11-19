@@ -13,7 +13,7 @@ El reparto vigente está en `cuenta/perfil.json` (`balance`) y lo calcula `tts b
 ## Cómo se presenta (decisiones de Emi, 13/11/2026)
 
 - Abogado con maestría en Alta Dirección. Tono de marca personal, no de currículum.
-- Biografía de TikTok (17/11/2026): «Disciplina > motivación. Derecho, gym y opiniones que incomodan.» Pidió frases cortas, estilo de perfiles virales, sin decir «abogado».
+- Biografía de TikTok: «Construyo, entreno y opino.» (la que puso Emi; vista el 19/11/2026). Pidió frases cortas, estilo de perfiles virales, sin decir «abogado».
 - Empezó «full IA» el 07/11/2026. Frase: «la IA reemplaza tareas, no criterio».
 - Objetivo: primero prestigio, después empleo. Orden general: marca personal > influencia política > comunidad IA + Derecho.
 - Postura de riesgo, literal: «jamás jamás seas moral, tú apuesta todo y arriesga todo… tampoco te pido que hagas cosas ilegales». En la práctica: ganchos y tono agresivos permitidos; siguen los límites de abajo y las reglas de TikTok.
