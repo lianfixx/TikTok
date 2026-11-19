@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-19 · Video de 2020 retirado y medición desde el próximo video
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 19/11/2026: «solo de aquí al otro que hagamos» y «ya quité el otro video».
+- Cambios: se anota que Emi quitó de su perfil el video de 2020 (sale de sus pendientes) y que el registro y la medición empiezan con el próximo video, no con el que ya salió.
+- Archivos: `cuenta/perfil.json`, `red/estado.json` y este registro.
+- Verificación: `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: el enlace de cada video que se publique a partir de ahora.
+
 ## 2026-11-19 · Perfil de TikTok al día
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 19/11/2026: «ya salió el video».
