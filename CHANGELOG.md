@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-23 · Meme de la Consulta de Datos de Expedientes, listo para aprobar
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, por la Matriz de Redes (23/11/2026): «genera un video fun para TikTok respecto al tema (no animaciones, busca cosas virales en box, y pon solo la foto, fondo negro y música de risa), cosas que generen conversación».
+- Cambios: excepción a «esta skill no hace video», hecha porque Emi lo pidió. Es una imagen fija original: una estampita «Q.E.P.D.» de la Consulta de Datos de Expedientes sobre fondo negro, 8 s, 1080×1920 y sin audio. No se usó el meme viral de referencia, que trae la marca de agua de otra cuenta. No anuncia ningún cierre, porque no hay aviso oficial. La risa se agrega en la app desde la biblioteca de TikTok: la música de fuera de TikTok puede silenciar el video (oficial, formato.md). Se subió al panel como pieza `e47f1e0d152d` (martes 24/11/2026, 19:30), «lista para aprobar», con la descripción «¿Cuál fue su última consulta? 🕊️» y #abogados #derecho #litigio. Lleva la etiqueta de IA apagada (gráfico, sin nada realista) y la divulgación comercial apagada. El video y la portada quedan en el panel y en la computadora en la nube, no en el repositorio.
+- Archivos: este registro.
+- Verificación: el panel aceptó la pieza sin errores ni avisos; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: la aprobación de Emi. La pieza del SAT `beeb55f32c9c` solo la puede marcar Emi con «Ya la publiqué»: el panel no deja que Claude marque una pieza que se subió desde la app.
+
 ## 2026-11-19 · Publicado en TikTok el video del SAT
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, 19/11/2026, mandó el enlace del video que publicó ese día.
