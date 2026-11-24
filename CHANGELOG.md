@@ -2,6 +2,15 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-24 · Video de X y LinkedIn armado como meme fijo
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, 24/11/2026: «Hazlo como captura de la noticia sobre fondo de negro o alguna otra forma de las millones que existen, razona bien por favor».
+- Decisión: en lugar de la captura se usa una comparación «Tu LinkedIn» contra «Tu X» sobre fondo negro. La captura de la nota estaba en inglés y con letra chica, y no se entendía sin sonido. La comparación se entiende en dos segundos y lleva a contestar la pregunta del cierre. Usa los nombres de las redes sin sus logotipos y muestra la fuente en pantalla.
+- Cambios: la pieza `0fa61430ac72` ya tiene video (10 s, 1080×1920, sin audio) y portada. Sigue para el miércoles 25/11/2026 a las 19:30, «lista para aprobar». Es otra excepción a «esta skill no hace video», porque lo pidió Emi. El video y la imagen se quedan en el panel y en la computadora en la nube, no en el repositorio.
+- Archivos: este registro.
+- Verificación: la imagen hecha aquí y la de la computadora en la nube tienen la misma huella (`c06ff8ea9fbe4703`) y se revisó a la vista. El panel aceptó la pieza sin errores; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: la aprobación de Emi.
+
 ## 2026-11-24 · Propuesta de TikTok sobre X y la experiencia laboral en el perfil
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, por la Matriz de Redes (24/11/2026): un video para TikTok sobre la noticia de que X agrega experiencia laboral al perfil.
