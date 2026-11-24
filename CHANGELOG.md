@@ -2,6 +2,15 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-24 · Propuesta de TikTok sobre X y la experiencia laboral en el perfil
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, por la Matriz de Redes (24/11/2026): un video para TikTok sobre la noticia de que X agrega experiencia laboral al perfil.
+- Cambios: pieza `0fa61430ac72` en el panel, «lista para aprobar», miércoles 25/11/2026 a las 19:30 (el martes ya tenía el meme de la Consulta). Trae el gancho, un guion propuesto para que Emi lo diga a su manera, el cierre con pregunta y una descripción con #X #LinkedIn #trabajo. Formato recomendado: Emi a cámara; la otra opción es una captura sobre fondo negro. Emi decide, y la pieza todavía no tiene video.
+- Fuentes: Social Media Today, 16/11/2026, dice que X está probando el apartado y que no hay anuncio oficial. La publicación de Benji Taylor sobre suscriptores viene de la Matriz y de una búsqueda; no la abrí. La pieza dice «está probando», no «ya salió para todos».
+- Archivos: este registro.
+- Verificación: el panel aceptó la pieza sin errores; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: el formato que elija Emi y su video.
+
 ## 2026-11-24 · Liga del OAJ en el meme de la Consulta de Expedientes
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, por la Matriz de Redes (24/11/2026), quiere la nueva liga de la consulta de expedientes en todo lo que se publique del tema.
