@@ -2,6 +2,14 @@
 
 Lo más reciente arriba. Formato en `ia/PROTOCOLO.md`, sección 3.
 
+## 2026-11-24 · Liga del OAJ en el meme de la Consulta de Expedientes
+- Agente: Claude Code (sesión en la nube)
+- Solicitud: Emi, por la Matriz de Redes (24/11/2026), quiere la nueva liga de la consulta de expedientes en todo lo que se publique del tema.
+- Cambios: la pieza `e47f1e0d152d` lleva en la descripción la línea «La nueva consulta está en el portal del OAJ (liga en el primer comentario)». La liga completa va como primer comentario fijado, porque en la descripción de TikTok no se puede abrir. La pieza vuelve a «lista para aprobar».
+- Archivos: este registro.
+- Verificación: la página del OAJ cargó el 24/11/2026 con el título «Servicios y trámites | DGGJ». Desde la computadora en la nube y desde esta sesión la conexión falló; cargó desde un navegador externo. El panel aceptó la pieza sin errores; `python3 ia/verificar.py ci` → aprobado.
+- Pendiente: la aprobación de Emi antes de las 19:30.
+
 ## 2026-11-23 · Meme de la Consulta de Datos de Expedientes, listo para aprobar
 - Agente: Claude Code (sesión en la nube)
 - Solicitud: Emi, por la Matriz de Redes (23/11/2026): «genera un video fun para TikTok respecto al tema (no animaciones, busca cosas virales en box, y pon solo la foto, fondo negro y música de risa), cosas que generen conversación».
